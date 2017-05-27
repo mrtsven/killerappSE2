@@ -11,7 +11,7 @@ namespace KillerAPP
     public SqlConnection databaseConnection;
     public void Connect()
     {
-      databaseConnection = new SqlConnection("Server=x.x.x.x;Database=x;User Id=root;Password=x;");
+      databaseConnection = new SqlConnection("Server=MEANKOMP;Database=RPG_FUN2;User Id=;Password=;");
       try
       {
         databaseConnection.Open();
