@@ -10,7 +10,7 @@ namespace KillerAPP.Repositories
   public class CharacterRepository : ICharacterRepository
   {
     IConnection connection;
-    public void createCharacter(Character name, Character Class, Character race)
+    public void createCharacter(Character name, Class Class, Race race)
     {
       try
       {

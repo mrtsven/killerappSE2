@@ -16,7 +16,5 @@ namespace KillerAPP.Domain
     public int strength;
     public int charisma;
     public int intelligence;
-    public int race;
-    public int Class;
     }
 }
