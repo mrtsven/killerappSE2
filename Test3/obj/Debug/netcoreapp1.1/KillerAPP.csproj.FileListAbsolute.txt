@@ -4,3 +4,6 @@ C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\bin\Debug\netcor
 C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\bin\Debug\netcoreapp1.1\KillerAPP.dll
 C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\obj\Debug\netcoreapp1.1\KillerAPP.csprojResolveAssemblyReference.cache
 C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\obj\Debug\netcoreapp1.1\KillerAPP.AssemblyInfo.cs
+C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\bin\Debug\netcoreapp1.1\KillerAPP.pdb
+C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\obj\Debug\netcoreapp1.1\KillerAPP.dll
+C:\Users\Sven\documents\visual studio 2017\Projects\Test3\Test3\obj\Debug\netcoreapp1.1\KillerAPP.pdb

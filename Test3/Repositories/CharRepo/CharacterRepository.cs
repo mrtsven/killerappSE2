@@ -10,6 +10,12 @@ namespace KillerAPP.Repositories
   public class CharacterRepository : ICharacterRepository
   {
     IConnection connection;
+    List<Character> npcList;
+
+    public CharacterRepository(IConnection connection)
+    {
+      this.connection = connection;
+    }
     public void createCharacter(Character name, Class Class, Race race)
     {
       try
@@ -34,6 +40,32 @@ namespace KillerAPP.Repositories
       {
         connection.disConnect();
       }
+    }
+
+    public List<Character> getNPC()
+    {
+      npcList = new List<Character>();
+      npcList.Add(new Character("He"));
+      npcList.Add(new Character("Woa"));
+      npcList.Add(new Character("Le"));
+      npcList.Add(new Character("Sha"));
+      //connection.Connect();
+      //SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
+
+      //SqlDataReader reader = sqlCommand.ExecuteReader();
+
+      //  sqlCommand.Connection = connection.getConnection();
+      //while (reader.Read())
+      //{
+      //  Character npc = new Character();
+      //  npcList.Add(npc);
+      //}
+
+      //  connection.disConnect();
+
+      return npcList;
+
+
     }
 
     public bool loginCharacter(string name)
