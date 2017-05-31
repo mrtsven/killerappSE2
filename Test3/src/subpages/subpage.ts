@@ -12,7 +12,7 @@ export class subpage {
     }
 
     getNpcs() {
-        this.http.fetch('character/getnpcs', {
+        this.http.fetch('character/getNpcs', {
             body: json(this.npcs)
         })
             .then(response => response.json())

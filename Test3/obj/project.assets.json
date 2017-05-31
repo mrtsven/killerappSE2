@@ -10036,10 +10036,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sven\\documents\\visual studio 2017\\Projects\\Test3\\Test3\\KillerAPP.csproj",
+      "projectUniqueName": "C:\\Users\\Sven\\Documents\\Visual Studio 2017\\Projects\\Test3\\Test3\\KillerAPP.csproj",
       "projectName": "KillerAPP",
-      "projectPath": "C:\\Users\\Sven\\documents\\visual studio 2017\\Projects\\Test3\\Test3\\KillerAPP.csproj",
-      "outputPath": "C:\\Users\\Sven\\documents\\visual studio 2017\\Projects\\Test3\\Test3\\obj\\",
+      "projectPath": "C:\\Users\\Sven\\Documents\\Visual Studio 2017\\Projects\\Test3\\Test3\\KillerAPP.csproj",
+      "outputPath": "C:\\Users\\Sven\\Documents\\Visual Studio 2017\\Projects\\Test3\\Test3\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

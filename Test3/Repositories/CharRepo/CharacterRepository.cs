@@ -16,6 +16,10 @@ namespace KillerAPP.Repositories
     {
       this.connection = connection;
     }
+    public CharacterRepository()
+    {
+
+    }
     public void createCharacter(Character name, Class Class, Race race)
     {
       try

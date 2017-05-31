@@ -11,15 +11,15 @@ namespace KillerAPP.Controllers
   public class CharacterController : Controller
     {
       ICharacterRepository charRepo;
-      CharacterController()
+      public CharacterController()
       {
-      charRepo = new CharacterRepository(new Connection());
+      charRepo = new CharacterRepository();
       }
 
-    [HttpPost]
-    public JsonResult getNpcs()
-    {
-      return Json(charRepo.getNPC());
-    }
+      [HttpPost]
+      public JsonResult getNpcs()
+      {
+        return Json(charRepo.getNPC());
+      }
     }
 }
