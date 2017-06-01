@@ -23,7 +23,18 @@ namespace KillerAPP.Controllers
         return Json(charRepo.getNPC());
       }
 
-      [HttpPost]
+    [HttpPost]
+    public JsonResult getClass()
+    {
+      return Json(charRepo.getClasses());
+    }
+    [HttpPost]
+    public JsonResult getRace()
+    {
+      return Json(charRepo.getRaces());
+    }
+
+    [HttpPost]
       public void create([FromBody] Character character, Class charclass, Race race)
       {
       string name = character.name;

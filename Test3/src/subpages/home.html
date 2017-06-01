@@ -3,11 +3,20 @@
     <h4>
       Voornaam:${character.name} <input type="text" id="name" value.bind="character.name">
       <br />
-
+      <select value.bind="chooseClass">
+        <option>Select A Class</option>
+        <option repeat.for="class of classes" value.bind="class.name">${class.name}</option>
+      </select>
+      <br />
+      <select value.bind="chooseRace">
+        <option>Select A Race</option>
+        <option repeat.for="race of races" value.bind="race.name">${race.name}</option>
+      </select>
     </h4>
 
 
     <button id="submit" type="submit" class="btn btn-primary">
       UPDATE
     </button>
+   </form>
 </template>

@@ -16,9 +16,10 @@ namespace KillerAPP.Domain
     public int strength;
     public int charisma;
     public int intelligence;
-    public Character(string name)
+    public Character(string name, int hp)
     {
       this.name = name;
+      this.healthPoints = hp;
     }
     }
 }

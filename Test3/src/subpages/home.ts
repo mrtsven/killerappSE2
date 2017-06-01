@@ -15,11 +15,27 @@ class Character {
      intelligence: number;
 }
 
+class Class {
+    id: number;
+    name: string;
+    type: string;
+    base_defence: number;
+    base_attack: number;
+    about: string;
+}
+
+class Race {
+    id: number;
+    faction: string;
+    race: string;
+    about: string;
+}
+
 @autoinject
 export class home {
     character;
     charclass;
-    race;
+    races;
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
         
     }
@@ -32,5 +48,16 @@ export class home {
         let x = await data.json();
         alert('Character:' + x.name + ' created!');
 
+    }
+
+    getRaces() {
+        this.http.fetch('character/getrace', {
+            body: json(this.races)
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.races = data;
+                console.log(data);
+            });
     }
 }

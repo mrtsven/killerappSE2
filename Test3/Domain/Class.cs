@@ -7,11 +7,11 @@ namespace KillerAPP.Domain
 {
     public class Class
     {
-    public int id;
-    public string name;
-    public string type;
-    public int base_defence;
-    public int base_attack;
-    public string about;
-    }
+    public int id { get; set; }
+    public string name { get; set; }
+    public string type { get; set; }
+    public int base_defence { get; set; }
+    public int base_attack { get; set; }
+    public string about { get; set; }
+  }
 }

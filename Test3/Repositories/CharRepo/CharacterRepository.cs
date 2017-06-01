@@ -16,10 +16,7 @@ namespace KillerAPP.Repositories
     {
       this.connection = connection;
     }
-    public CharacterRepository()
-    {
 
-    }
     public void createCharacter(Character name, Class Class, Race race)
     {
       try
@@ -46,6 +43,37 @@ namespace KillerAPP.Repositories
       }
     }
 
+    public List<Class> getClasses()
+    {
+      List<Class> listClass = new List<Class>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Class", connection.getConnection());
+      using (SqlDataReader reader = sqlCommand.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          listClass.Add(CreateClassFromReader(reader));
+        }
+      }
+
+      connection.disConnect();
+      return listClass;
+    }
+
+    private Class CreateClassFromReader(SqlDataReader reader)
+    {
+    Class klass = new Class
+      {
+        id = Convert.ToInt32(reader["ID"]),
+        name = Convert.ToString(reader["name"]),
+        type = Convert.ToString(reader["type"]),
+        base_defence = Convert.ToInt32(reader["base_defence"]),
+        base_attack = Convert.ToInt32(reader["base_attack"]),
+        about = Convert.ToString(reader["about"])
+      };
+      return klass;
+    }
+
     public List<Character> getNPC()
     {
       npcList = new List<Character>();
@@ -62,7 +90,7 @@ namespace KillerAPP.Repositories
         {
           while (reader.Read())
           {
-            Character npc = new Character(reader.GetString(1));
+            Character npc = new Character(reader.GetString(1), reader.GetInt32(2));
             npcList.Add(npc);
           }
         }
@@ -76,6 +104,37 @@ namespace KillerAPP.Repositories
 
 
     }
+
+    public List<Race> getRaces()
+    {
+
+      List<Race> listRace = new List<Race>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_race", connection.getConnection());
+      using (SqlDataReader reader = sqlCommand.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          listRace.Add(CreateRaceFromReader(reader));
+        }
+      }
+
+      connection.disConnect();
+      return listRace;
+    }
+
+    private Race CreateRaceFromReader(SqlDataReader reader)
+    {
+      Race race = new Race
+      {
+          id = Convert.ToInt32(reader["ID"]),
+        faction = Convert.ToString(reader["faction"]),
+        race = Convert.ToString(reader["race"]),
+        about = Convert.ToString(reader["about"])
+      };
+      return race;
+    }
+
 
     public bool loginCharacter(string name)
     {
