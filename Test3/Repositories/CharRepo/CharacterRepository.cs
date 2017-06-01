@@ -67,7 +67,7 @@ namespace KillerAPP.Repositories
         id = Convert.ToInt32(reader["ID_Class"]),
         name = Convert.ToString(reader["name"]),
         type = Convert.ToString(reader["type"]),
-        base_defence = Convert.ToInt32(reader["base_defence"]),
+        base_defence = Convert.ToInt32(reader["base_defense"]),
         base_attack = Convert.ToInt32(reader["base_attack"]),
         about = Convert.ToString(reader["about"])
       };

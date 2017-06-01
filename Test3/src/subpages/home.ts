@@ -38,6 +38,7 @@ export class home {
     races;
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
         this.getRaces();
+        this.getClasses();
     }
 
     async createCharacter() {
@@ -57,6 +58,17 @@ export class home {
             .then(response => response.json())
             .then(data => {
                 this.races = data;
+                console.log(data);
+            });
+    }
+
+    getClasses() {
+        this.http.fetch('character/getclass', {
+            body: json(this.charclass)
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.charclass = data;
                 console.log(data);
             });
     }
