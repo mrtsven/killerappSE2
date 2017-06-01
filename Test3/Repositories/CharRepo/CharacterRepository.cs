@@ -49,23 +49,28 @@ namespace KillerAPP.Repositories
     public List<Character> getNPC()
     {
       npcList = new List<Character>();
-      npcList.Add(new Character("He"));
-      npcList.Add(new Character("Woa"));
-      npcList.Add(new Character("Le"));
-      npcList.Add(new Character("Sha"));
-      //connection.Connect();
-      //SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
+      //npcList.Add(new Character("He"));
+      //npcList.Add(new Character("Woa"));
+      //npcList.Add(new Character("Le"));
+      //npcList.Add(new Character("Sha"));
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
 
-      //SqlDataReader reader = sqlCommand.ExecuteReader();
+      
+ 
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            Character npc = new Character(reader.GetString(1));
+            npcList.Add(npc);
+          }
+        }
 
-      //  sqlCommand.Connection = connection.getConnection();
-      //while (reader.Read())
-      //{
-      //  Character npc = new Character();
-      //  npcList.Add(npc);
-      //}
+      
 
-      //  connection.disConnect();
+
+        connection.disConnect();
 
       return npcList;
 

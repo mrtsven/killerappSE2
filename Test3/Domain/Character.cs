@@ -20,6 +20,5 @@ namespace KillerAPP.Domain
     {
       this.name = name;
     }
-
     }
 }

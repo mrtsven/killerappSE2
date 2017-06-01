@@ -105,21 +105,87 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-define('subpages/home',["require", "exports", "aurelia-framework"], function (require, exports, aurelia_framework_1) {
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+define('subpages/home',["require", "exports", "aurelia-framework", "aurelia-fetch-client", "aurelia-event-aggregator", "aurelia-router"], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, aurelia_event_aggregator_1, aurelia_router_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var home = (function () {
-        function home() {
+    var Character = (function () {
+        function Character() {
         }
+        return Character;
+    }());
+    var home = (function () {
+        function home(http, event, router) {
+            this.http = http;
+            this.event = event;
+            this.router = router;
+        }
+        home.prototype.createCharacter = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var data, x;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this.http.fetch('character/create', {
+                                body: aurelia_fetch_client_1.json(this.createCharacter)
+                            })];
+                        case 1:
+                            data = _a.sent();
+                            return [4, data.json()];
+                        case 2:
+                            x = _a.sent();
+                            alert('Character:' + x.name + ' created!');
+                            return [2];
+                    }
+                });
+            });
+        };
         return home;
     }());
     home = __decorate([
-        aurelia_framework_1.autoinject
+        aurelia_framework_1.autoinject,
+        __metadata("design:paramtypes", [aurelia_fetch_client_1.HttpClient, aurelia_event_aggregator_1.EventAggregator, aurelia_router_1.Router])
     ], home);
     exports.home = home;
 });
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL2hvbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0lBSUEsSUFBYSxJQUFJO1FBQWpCO1FBRUEsQ0FBQztRQUFELFdBQUM7SUFBRCxDQUZBLEFBRUMsSUFBQTtJQUZZLElBQUk7UUFEaEIsOEJBQVU7T0FDRSxJQUFJLENBRWhCO0lBRlksb0JBQUkiLCJmaWxlIjoic3VicGFnZXMvaG9tZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEh0dHBDbGllbnQsIGpzb24gfSBmcm9tICdhdXJlbGlhLWZldGNoLWNsaWVudCc7XG5pbXBvcnQgeyBhdXRvaW5qZWN0IH0gZnJvbSAnYXVyZWxpYS1mcmFtZXdvcmsnO1xuXG5AYXV0b2luamVjdFxuZXhwb3J0IGNsYXNzIGhvbWUge1xuXHJcbn0iXSwic291cmNlUm9vdCI6InNyYyJ9
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL2hvbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFLQTtRQUFBO1FBVUEsQ0FBQztRQUFELGdCQUFDO0lBQUQsQ0FWQSxBQVVDLElBQUE7SUFHRCxJQUFhLElBQUk7UUFJYixjQUFvQixJQUFnQixFQUFVLEtBQXNCLEVBQVUsTUFBYztZQUF4RSxTQUFJLEdBQUosSUFBSSxDQUFZO1lBQVUsVUFBSyxHQUFMLEtBQUssQ0FBaUI7WUFBVSxXQUFNLEdBQU4sTUFBTSxDQUFRO1FBRTVGLENBQUM7UUFFSyw4QkFBZSxHQUFyQjs7Ozs7Z0NBQ3lCLFdBQU0sSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsa0JBQWtCLEVBQUU7Z0NBQzNELElBQUksRUFBRSwyQkFBSSxDQUFDLElBQUksQ0FBQyxlQUFlLENBQUM7NkJBQ25DLENBQUMsRUFBQTs7bUNBRm1CLFNBRW5COzRCQUVNLFdBQU0sSUFBSSxDQUFDLElBQUksRUFBRSxFQUFBOztnQ0FBakIsU0FBaUI7NEJBQ3pCLEtBQUssQ0FBQyxZQUFZLEdBQUcsQ0FBQyxDQUFDLElBQUksR0FBRyxXQUFXLENBQUMsQ0FBQzs7Ozs7U0FFOUM7UUFDTCxXQUFDO0lBQUQsQ0FqQkEsQUFpQkMsSUFBQTtJQWpCWSxJQUFJO1FBRGhCLDhCQUFVO3lDQUttQixpQ0FBVSxFQUFpQiwwQ0FBZSxFQUFrQix1QkFBTTtPQUpuRixJQUFJLENBaUJoQjtJQWpCWSxvQkFBSSIsImZpbGUiOiJzdWJwYWdlcy9ob21lLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXV0b2luamVjdCB9IGZyb20gXCJhdXJlbGlhLWZyYW1ld29ya1wiO1xuaW1wb3J0IHsgSHR0cENsaWVudCwganNvbiB9IGZyb20gXCJhdXJlbGlhLWZldGNoLWNsaWVudFwiO1xuaW1wb3J0IHsgRXZlbnRBZ2dyZWdhdG9yIH0gZnJvbSAnYXVyZWxpYS1ldmVudC1hZ2dyZWdhdG9yJztcbmltcG9ydCB7IFJvdXRlciB9IGZyb20gJ2F1cmVsaWEtcm91dGVyJztcblxuY2xhc3MgQ2hhcmFjdGVyIHtcbiAgICBpZDogbnVtYmVyO1xuICAgIG5hbWU6IHN0cmluZztcbiAgICAgbHZsOiBudW1iZXI7XG4gICAgIHhwOiBudW1iZXI7XG4gICAgIGhlYWx0aFBvaW50czogbnVtYmVyO1xuICAgICBzdGFtaW5hOiBudW1iZXI7XG4gICAgIHN0cmVuZ3RoOiBudW1iZXI7XG4gICAgIGNoYXJpc21hOiBudW1iZXI7XG4gICAgIGludGVsbGlnZW5jZTogbnVtYmVyO1xyXG59XG5cclxuQGF1dG9pbmplY3RcbmV4cG9ydCBjbGFzcyBob21lIHtcbiAgICBjaGFyYWN0ZXI7XG4gICAgY2hhcmNsYXNzO1xuICAgIHJhY2U7XG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSBodHRwOiBIdHRwQ2xpZW50LCBwcml2YXRlIGV2ZW50OiBFdmVudEFnZ3JlZ2F0b3IsIHByaXZhdGUgcm91dGVyOiBSb3V0ZXIpIHtcclxuICAgICAgICBcclxuICAgIH1cblxuICAgIGFzeW5jIGNyZWF0ZUNoYXJhY3RlcigpIHtcbiAgICAgICAgbGV0IGRhdGE6IFJlc3BvbnNlID0gYXdhaXQgdGhpcy5odHRwLmZldGNoKCdjaGFyYWN0ZXIvY3JlYXRlJywge1xuICAgICAgICAgICAgYm9keToganNvbih0aGlzLmNyZWF0ZUNoYXJhY3RlcilcbiAgICAgICAgfSk7XG5cbiAgICAgICAgbGV0IHggPSBhd2FpdCBkYXRhLmpzb24oKTtcbiAgICAgICAgYWxlcnQoJ0NoYXJhY3RlcjonICsgeC5uYW1lICsgJyBjcmVhdGVkIScpO1xuXHJcbiAgICB9XHJcbn0iXSwic291cmNlUm9vdCI6InNyYyJ9
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -163,6 +229,6 @@ define('subpages/subpage',["require", "exports", "aurelia-framework", "aurelia-f
 //# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL3N1YnBhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0lBT0EsSUFBYSxPQUFPO1FBRWhCLGlCQUFvQixJQUFnQixFQUFVLEtBQXNCLEVBQVUsTUFBYztZQUF4RSxTQUFJLEdBQUosSUFBSSxDQUFZO1lBQVUsVUFBSyxHQUFMLEtBQUssQ0FBaUI7WUFBVSxXQUFNLEdBQU4sTUFBTSxDQUFRO1lBQ3hGLElBQUksQ0FBQyxPQUFPLEVBQUUsQ0FBQztRQUNuQixDQUFDO1FBRUQseUJBQU8sR0FBUDtZQUFBLGlCQVNDO1lBUkcsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsbUJBQW1CLEVBQUU7Z0JBQ2pDLElBQUksRUFBRSwyQkFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUM7YUFDeEIsQ0FBQztpQkFDRyxJQUFJLENBQUMsVUFBQSxRQUFRLElBQUksT0FBQSxRQUFRLENBQUMsSUFBSSxFQUFFLEVBQWYsQ0FBZSxDQUFDO2lCQUNqQyxJQUFJLENBQUMsVUFBQSxJQUFJO2dCQUNOLEtBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO2dCQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFDO1lBQ3RCLENBQUMsQ0FBQyxDQUFDO1FBQ1gsQ0FBQztRQUNMLGNBQUM7SUFBRCxDQWhCQSxBQWdCQyxJQUFBO0lBaEJZLE9BQU87UUFEbkIsOEJBQVU7eUNBR21CLGlDQUFVLEVBQWlCLDBDQUFlLEVBQWtCLHVCQUFNO09BRm5GLE9BQU8sQ0FnQm5CO0lBaEJZLDBCQUFPIiwiZmlsZSI6InN1YnBhZ2VzL3N1YnBhZ2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB7IGF1dG9pbmplY3QgfSBmcm9tIFwiYXVyZWxpYS1mcmFtZXdvcmtcIjtcbmltcG9ydCB7IEh0dHBDbGllbnQsIGpzb24gfSBmcm9tIFwiYXVyZWxpYS1mZXRjaC1jbGllbnRcIjtcbmltcG9ydCB7IEV2ZW50QWdncmVnYXRvciB9IGZyb20gJ2F1cmVsaWEtZXZlbnQtYWdncmVnYXRvcic7XG5pbXBvcnQgeyBSb3V0ZXIgfSBmcm9tICdhdXJlbGlhLXJvdXRlcic7XG5cclxuQGF1dG9pbmplY3RcbmV4cG9ydCBjbGFzcyBzdWJwYWdlIHtcbiAgICBucGNzO1xuICAgIGNvbnN0cnVjdG9yKHByaXZhdGUgaHR0cDogSHR0cENsaWVudCwgcHJpdmF0ZSBldmVudDogRXZlbnRBZ2dyZWdhdG9yLCBwcml2YXRlIHJvdXRlcjogUm91dGVyKSB7XHJcbiAgICAgICAgdGhpcy5nZXROcGNzKCk7XHJcbiAgICB9XG5cbiAgICBnZXROcGNzKCkge1xyXG4gICAgICAgIHRoaXMuaHR0cC5mZXRjaCgnY2hhcmFjdGVyL2dldE5wY3MnLCB7XHJcbiAgICAgICAgICAgIGJvZHk6IGpzb24odGhpcy5ucGNzKVxyXG4gICAgICAgIH0pXHJcbiAgICAgICAgICAgIC50aGVuKHJlc3BvbnNlID0+IHJlc3BvbnNlLmpzb24oKSlcclxuICAgICAgICAgICAgLnRoZW4oZGF0YSA9PiB7XHJcbiAgICAgICAgICAgICAgICB0aGlzLm5wY3MgPSBkYXRhO1xyXG4gICAgICAgICAgICAgICAgY29uc29sZS5sb2coZGF0YSk7XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgfVxyXG59XHJcbiJdLCJzb3VyY2VSb290Ijoic3JjIn0=
 
 define('text!app.html', ['module'], function(module) { module.exports = "<template bindable=\"router\">\n  <h1>HEADER</h1>\n  <ul class=\"nav nav-tabs\">\r\n    <li role=\"presentation\" class=\"active\"><a route-href=\"route: home\">Home</a></li>\r\n    <li role=\"presentation\"><a route-href=\"route: subpage\">test</a></li>\r\n  </ul>\n      <div class=\"container\">\n          <router-view></router-view>\n      </div>\n\r\n</template>\n"; });
-define('text!subpages/home.html', ['module'], function(module) { module.exports = "<template>\n\r\n</template>"; });
+define('text!subpages/home.html', ['module'], function(module) { module.exports = "<template>\n  <form method=\"POST\" submit.delegate=\"update()\">\r\n    <h4>\r\n      Voornaam:${character.name} <input type=\"text\" id=\"name\" value.bind=\"character.name\">\r\n      <br />\r\n\r\n    </h4>\r\n\r\n\r\n    <button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">\r\n      UPDATE\r\n    </button>\r\n</template>"; });
 define('text!subpages/subpage.html', ['module'], function(module) { module.exports = "<template>\r\n  <ul class=\"list-group\">\r\n    <li repeat.for=\"npc of npcs\" class=\"list-group-item \">${npc.name}\r\n    </li>\r\n  </ul>\r\n</template>\r\n"; });
 //# sourceMappingURL=app-bundle.js.map

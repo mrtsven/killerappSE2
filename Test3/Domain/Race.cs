@@ -7,9 +7,9 @@ namespace KillerAPP.Domain
 {
     public class Race
     {
-    int id;
-    string faction;
-    string race;
-    string about;
+    public int id;
+    public string faction;
+    public string race;
+    public string about;
     }
 }

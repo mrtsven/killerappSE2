@@ -1,7 +1,36 @@
-﻿import { HttpClient, json } from 'aurelia-fetch-client';
-import { autoinject } from 'aurelia-framework';
+﻿import { autoinject } from "aurelia-framework";
+import { HttpClient, json } from "aurelia-fetch-client";
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { Router } from 'aurelia-router';
+
+class Character {
+    id: number;
+    name: string;
+     lvl: number;
+     xp: number;
+     healthPoints: number;
+     stamina: number;
+     strength: number;
+     charisma: number;
+     intelligence: number;
+}
 
 @autoinject
 export class home {
+    character;
+    charclass;
+    race;
+    constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
+        
+    }
 
+    async createCharacter() {
+        let data: Response = await this.http.fetch('character/create', {
+            body: json(this.createCharacter)
+        });
+
+        let x = await data.json();
+        alert('Character:' + x.name + ' created!');
+
+    }
 }

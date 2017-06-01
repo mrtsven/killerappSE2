@@ -1,3 +1,13 @@
 ﻿<template>
+  <form method="POST" submit.delegate="update()">
+    <h4>
+      Voornaam:${character.name} <input type="text" id="name" value.bind="character.name">
+      <br />
 
+    </h4>
+
+
+    <button id="submit" type="submit" class="btn btn-primary">
+      UPDATE
+    </button>
 </template>
