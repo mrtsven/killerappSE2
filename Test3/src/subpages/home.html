@@ -1,16 +1,16 @@
 ﻿<template>
   <form method="POST" submit.delegate="update()">
     <h4>
-      Voornaam:${character.name} <input type="text" id="name" value.bind="character.name">
+      Character name:${character.name} <input type="text" id="name" value.bind="character.name">
       <br />
-      <select value.bind="chooseClass">
+      <select value.bind="update()">
         <option>Select A Class</option>
         <option repeat.for="class of classes" value.bind="class.name">${class.name}</option>
       </select>
       <br />
-      <select value.bind="chooseRace">
+      <select value.bind="update()">
         <option>Select A Race</option>
-        <option repeat.for="race of races" value.bind="race.name">${race.name}</option>
+        <option repeat.for="race of races" value.bind="race.faction">${race.faction}</option>
       </select>
     </h4>
 

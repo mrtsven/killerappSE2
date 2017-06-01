@@ -37,7 +37,7 @@ export class home {
     charclass;
     races;
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
-        
+        this.getRaces();
     }
 
     async createCharacter() {

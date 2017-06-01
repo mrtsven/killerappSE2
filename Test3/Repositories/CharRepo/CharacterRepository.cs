@@ -64,7 +64,7 @@ namespace KillerAPP.Repositories
     {
     Class klass = new Class
       {
-        id = Convert.ToInt32(reader["ID"]),
+        id = Convert.ToInt32(reader["ID_Class"]),
         name = Convert.ToString(reader["name"]),
         type = Convert.ToString(reader["type"]),
         base_defence = Convert.ToInt32(reader["base_defence"]),
@@ -127,7 +127,7 @@ namespace KillerAPP.Repositories
     {
       Race race = new Race
       {
-          id = Convert.ToInt32(reader["ID"]),
+        id = Convert.ToInt32(reader["id_race"]),
         faction = Convert.ToString(reader["faction"]),
         race = Convert.ToString(reader["race"]),
         about = Convert.ToString(reader["about"])
