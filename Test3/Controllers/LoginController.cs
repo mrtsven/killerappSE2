@@ -1,4 +1,5 @@
 ﻿using KillerAPP.Repositories;
+using KillerAPP.Repositories.LoginRepo;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,17 @@ namespace KillerAPP.Controllers
     {
       public string charname { get; set; }
     }
-    ICharacterRepository charRepo;
+    ILoginRepository loginRepo;
     public LoginController()
     {
-      charRepo = new CharacterRepository(new Connection());
+      loginRepo = new LoginRepository(new Connection());
     }
 
     [HttpPost]
     public void login([FromBody]Login login )
     {
       string name = login.charname;
-      charRepo.loginCharacter(name);
+      loginRepo.loginCharacter(name);
     }
   }
 }

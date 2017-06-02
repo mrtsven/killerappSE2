@@ -8,7 +8,6 @@ namespace KillerAPP.Repositories
 {
     interface ICharacterRepository
     {
-    bool loginCharacter(string charname);
     void createCharacter(string name, int Class, int race);
     List<Npc> getNPC();
     List<Class> getClasses();

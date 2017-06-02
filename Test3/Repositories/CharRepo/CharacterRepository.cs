@@ -141,47 +141,5 @@ namespace KillerAPP.Repositories
       };
       return race;
     }
-
-
-    public bool loginCharacter(string name)
-    {
-      bool login = false;
-      string characterName = "";
-
-      if (name == null || name == "") return false;
-
-      try
-      {
-        connection.Connect();
-        SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Character where name like @name", connection.getConnection());
-
-        sqlCommand.Parameters.AddWithValue("@name", name);
-        SqlDataReader reader = sqlCommand.ExecuteReader();
-        if (reader.HasRows)
-        {
-          while (reader.Read())
-          {
-            characterName = reader["name"].ToString();
-          }
-        }
-      }
-
-      catch (Exception)
-      {
-        throw;
-      }
-
-      finally
-      {
-        connection.disConnect();
-      }
-
-      if (name == characterName)
-      {
-        login = true;
-      }
-
-      return login;
-    }
   }
 }
