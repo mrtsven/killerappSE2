@@ -1,21 +1,21 @@
 ﻿<template>
-  <form method="POST" submit.delegate="update()">
+  <form method="POST" submit.delegate="createCharacter()">
     <h4>
-      Character name:${character.name} <input type="text" id="name" value.bind="character.name">
+      Character name:<input type="text" id="name" value.bind="name">
       <br />
-      <select value.bind="update()">
+      <select value.bind="selectedRace">
         <option>Select A Class</option>
-        <option repeat.for="class of charclass" value.bind="class.name">${class.name}</option>
+        <option repeat.for="class of charclass" value.bind="class.id">${class.name}</option>
       </select>
       <br />
-      <select value.bind="update()">
+      <select value.bind="selectedClass">
         <option>Select A Race</option>
-        <option repeat.for="race of races" value.bind="race.faction">${race.faction}</option>
+        <option repeat.for="race of races" value.bind="race.id">${race.faction}</option>
       </select>
     </h4>
 
 
-    <button id="submit" type="submit" class="btn btn-primary">
+    <button id="submit" type="submit" class="btn btn-primary" click.delegate="createCharacter()">
       UPDATE
     </button>
    </form>

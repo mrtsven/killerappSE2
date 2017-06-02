@@ -17,13 +17,15 @@ namespace KillerAPP.Repositories
       this.connection = connection;
     }
 
-    public void createCharacter(Character name, Class Class, Race race)
+    public void createCharacter(string name, int Class, int race)
     {
       try
       {
-        SqlCommand sqlCommand = new SqlCommand("insert into  character_table (Name, FK_ClassID, FK_RaceID) VALUES (@name, @Class, @race)", connection.getConnection());
+        SqlCommand sqlCommand = new SqlCommand("CreateCharacter", connection.getConnection());
+
         connection.Connect();
-        sqlCommand.Parameters.AddWithValue("@name", name);
+        sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+        sqlCommand.Parameters.AddWithValue("@CharName", name);
         sqlCommand.Parameters.AddWithValue("@Class", Class);
         sqlCommand.Parameters.AddWithValue("@race", race);
 
@@ -77,10 +79,6 @@ namespace KillerAPP.Repositories
     public List<Character> getNPC()
     {
       npcList = new List<Character>();
-      //npcList.Add(new Character("He"));
-      //npcList.Add(new Character("Woa"));
-      //npcList.Add(new Character("Le"));
-      //npcList.Add(new Character("Sha"));
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
 

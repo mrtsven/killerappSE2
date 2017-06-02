@@ -33,27 +33,29 @@ class Race {
 
 @autoinject
 export class home {
-    character;
+    name;
     charclass;
     races;
+
+    selectedRace: number;
+    selectedClass: number;
+
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
         this.getRaces();
         this.getClasses();
     }
 
-    async createCharacter() {
-        let data: Response = await this.http.fetch('character/create', {
-            body: json(this.createCharacter)
+    createCharacter() {
+        console.log(this.selectedRace);
+        this.http.fetch('character/create', {
+            body: json(new create(this.name, this.selectedRace, this.selectedClass))
         });
-
-        let x = await data.json();
-        alert('Character:' + x.name + ' created!');
 
     }
 
     getRaces() {
         this.http.fetch('character/getrace', {
-            body: json(this.races)
+            
         })
             .then(response => response.json())
             .then(data => {
@@ -64,12 +66,23 @@ export class home {
 
     getClasses() {
         this.http.fetch('character/getclass', {
-            body: json(this.charclass)
+        
         })
             .then(response => response.json())
             .then(data => {
                 this.charclass = data;
                 console.log(data);
             });
+    }
+}
+
+export class create {
+    name: string;
+    race: number;
+    charclass: number;
+    constructor(name, race, charclass) {
+        this.charclass = charclass;
+        this.race = race;
+        this.name = name;
     }
 }

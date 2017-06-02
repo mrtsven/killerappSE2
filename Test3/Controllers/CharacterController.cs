@@ -8,6 +8,13 @@ using KillerAPP.Domain;
 
 namespace KillerAPP.Controllers
 {
+  public class Create {
+
+    public string name { get; set; }
+    public int race { get; set; }
+    public int charclass { get; set; }
+    }
+
   [Route("api/[controller]/[action]")]
   public class CharacterController : Controller
     {
@@ -24,9 +31,9 @@ namespace KillerAPP.Controllers
       }
 
     [HttpPost]
-    public JsonResult getClass()
+    public List<Class> getClass()
     {
-      return Json(charRepo.getClasses());
+      return charRepo.getClasses();
     }
     [HttpPost]
     public JsonResult getRace()
@@ -35,11 +42,14 @@ namespace KillerAPP.Controllers
     }
 
     [HttpPost]
-      public void create([FromBody] Character character, Class charclass, Race race)
+      public void create([FromBody] Create create)
       {
-      string name = character.name;
-      int chosenClass = charclass.id;
-      int chosenRace = race.id;
+      string name = create.name;
+      int chosenRace = create.race;
+      int chosenClass = create.charclass;
+
+      charRepo.createCharacter(name, chosenClass, chosenRace);
+
       }
     }
 }
