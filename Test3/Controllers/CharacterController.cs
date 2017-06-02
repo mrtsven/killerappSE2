@@ -25,9 +25,9 @@ namespace KillerAPP.Controllers
       }
 
       [HttpPost]
-      public List<Character> getNpcs()
+      public List<Npc> getNpcs()
       {
-        return charRepo.getNPC();
+      return charRepo.getNPC();
       }
 
     [HttpPost]

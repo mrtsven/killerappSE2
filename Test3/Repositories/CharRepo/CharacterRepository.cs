@@ -10,7 +10,7 @@ namespace KillerAPP.Repositories
   public class CharacterRepository : ICharacterRepository
   {
     IConnection connection;
-    List<Character> npcList;
+    List<Npc> npcList;
 
     public CharacterRepository(IConnection connection)
     {
@@ -76,9 +76,9 @@ namespace KillerAPP.Repositories
       return klass;
     }
 
-    public List<Character> getNPC()
+    public List<Npc> getNPC()
     {
-      npcList = new List<Character>();
+      npcList = new List<Npc>();
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
 
@@ -88,19 +88,28 @@ namespace KillerAPP.Repositories
         {
           while (reader.Read())
           {
-            Character npc = new Character(reader.GetString(1), reader.GetInt32(2));
-            npcList.Add(npc);
+          ;
+            npcList.Add((CreateNpcFromReader(reader)));
           }
         }
-
-      
-
-
         connection.disConnect();
 
       return npcList;
-
-
+    }
+    private Npc CreateNpcFromReader(SqlDataReader reader)
+    {
+      Npc npc = new Npc
+      {
+        id = Convert.ToInt32(reader["ID_NPC"]),
+        name = Convert.ToString(reader["name"]),
+        healthPoints = Convert.ToInt32(reader["healthPoints"]),
+        stamina = Convert.ToInt32(reader["stamina"]),
+        strength = Convert.ToInt32(reader["strength"]),
+        charisma = Convert.ToInt32(reader["charisma"]),
+        intelligence = Convert.ToInt32(reader["intelligence"]),
+        about = Convert.ToString(reader["about"])
+      };
+      return npc;
     }
 
     public List<Race> getRaces()

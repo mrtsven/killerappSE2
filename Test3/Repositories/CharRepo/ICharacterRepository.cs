@@ -10,7 +10,7 @@ namespace KillerAPP.Repositories
     {
     bool loginCharacter(string charname);
     void createCharacter(string name, int Class, int race);
-    List<Character> getNPC();
+    List<Npc> getNPC();
     List<Class> getClasses();
     List<Race> getRaces();
 
