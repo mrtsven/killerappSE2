@@ -187,6 +187,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+define('subpages/login',["require", "exports", "aurelia-framework", "aurelia-fetch-client", "aurelia-event-aggregator", "aurelia-router"], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, aurelia_event_aggregator_1, aurelia_router_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var login = (function () {
+        function login(http, event, router) {
+            this.http = http;
+            this.event = event;
+            this.router = router;
+        }
+        return login;
+    }());
+    login = __decorate([
+        aurelia_framework_1.autoinject,
+        __metadata("design:paramtypes", [aurelia_fetch_client_1.HttpClient, aurelia_event_aggregator_1.EventAggregator, aurelia_router_1.Router])
+    ], login);
+    exports.login = login;
+});
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL2xvZ2luLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztJQU1BLElBQWEsS0FBSztRQUNkLGVBQW9CLElBQWdCLEVBQVUsS0FBc0IsRUFBVSxNQUFjO1lBQXhFLFNBQUksR0FBSixJQUFJLENBQVk7WUFBVSxVQUFLLEdBQUwsS0FBSyxDQUFpQjtZQUFVLFdBQU0sR0FBTixNQUFNLENBQVE7UUFFNUYsQ0FBQztRQUVMLFlBQUM7SUFBRCxDQUxBLEFBS0MsSUFBQTtJQUxZLEtBQUs7UUFEakIsOEJBQVU7eUNBRW1CLGlDQUFVLEVBQWlCLDBDQUFlLEVBQWtCLHVCQUFNO09BRG5GLEtBQUssQ0FLakI7SUFMWSxzQkFBSyIsImZpbGUiOiJzdWJwYWdlcy9sb2dpbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGF1dG9pbmplY3QgfSBmcm9tIFwiYXVyZWxpYS1mcmFtZXdvcmtcIjtcbmltcG9ydCB7IEh0dHBDbGllbnQsIGpzb24gfSBmcm9tIFwiYXVyZWxpYS1mZXRjaC1jbGllbnRcIjtcbmltcG9ydCB7IEV2ZW50QWdncmVnYXRvciB9IGZyb20gJ2F1cmVsaWEtZXZlbnQtYWdncmVnYXRvcic7XG5pbXBvcnQgeyBSb3V0ZXIgfSBmcm9tICdhdXJlbGlhLXJvdXRlcic7XG5cbkBhdXRvaW5qZWN0XG5leHBvcnQgY2xhc3MgbG9naW4ge1xuICAgIGNvbnN0cnVjdG9yKHByaXZhdGUgaHR0cDogSHR0cENsaWVudCwgcHJpdmF0ZSBldmVudDogRXZlbnRBZ2dyZWdhdG9yLCBwcml2YXRlIHJvdXRlcjogUm91dGVyKSB7XG5cclxuICAgIH1cblxyXG59Il0sInNvdXJjZVJvb3QiOiJzcmMifQ==
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 define('subpages/subpage',["require", "exports", "aurelia-framework", "aurelia-fetch-client", "aurelia-event-aggregator", "aurelia-router"], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, aurelia_event_aggregator_1, aurelia_router_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -221,5 +250,6 @@ define('subpages/subpage',["require", "exports", "aurelia-framework", "aurelia-f
 
 define('text!app.html', ['module'], function(module) { module.exports = "<template bindable=\"router\">\n  <h1>HEADER</h1>\n  <ul class=\"nav nav-tabs\">\r\n    <li role=\"presentation\" class=\"active\"><a route-href=\"route: home\">Home</a></li>\r\n    <li role=\"presentation\"><a route-href=\"route: subpage\">test</a></li>\r\n  </ul>\n      <div class=\"container\">\n          <router-view></router-view>\n      </div>\n\r\n</template>\n"; });
 define('text!subpages/home.html', ['module'], function(module) { module.exports = "<template>\n  <form method=\"POST\" submit.delegate=\"createCharacter()\">\r\n    <h4>\r\n      Character name:<input type=\"text\" id=\"name\" value.bind=\"name\">\r\n      <br />\r\n      <select value.bind=\"selectedRace\">\r\n        <option>Select A Class</option>\r\n        <option repeat.for=\"class of charclass\" value.bind=\"class.id\">${class.name}</option>\r\n      </select>\n      <br />\n      <select value.bind=\"selectedClass\">\r\n        <option>Select A Race</option>\r\n        <option repeat.for=\"race of races\" value.bind=\"race.id\">${race.faction}</option>\r\n      </select>\r\n    </h4>\r\n\r\n\r\n    <button id=\"submit\" type=\"submit\" class=\"btn btn-primary\" click.delegate=\"createCharacter()\">\r\n      UPDATE\r\n    </button>\n   </form>\r\n</template>"; });
+define('text!subpages/login.html', ['module'], function(module) { module.exports = "<template>\n  <div class=\"input-group\">\r\n    <span class=\"input-group-addon\" id=\"sizing-addon2\">@</span>\r\n    <input type=\"text\" class=\"form-control\" placeholder=\"Username\" aria-describedby=\"sizing-addon2\">\r\n  </div>\n</template>\r\n"; });
 define('text!subpages/subpage.html', ['module'], function(module) { module.exports = "<template>\r\n  <ul class=\"list-group\">\r\n    <li repeat.for=\"npc of npcs\" class=\"list-group-item \">${npc.name} | ${npc.healthPoints}\r\n    </li>\r\n  </ul>\r\n</template>\r\n"; });
 //# sourceMappingURL=app-bundle.js.map

@@ -25,9 +25,9 @@ namespace KillerAPP.Controllers
       }
 
       [HttpPost]
-      public JsonResult getNpcs()
+      public List<Character> getNpcs()
       {
-        return Json(charRepo.getNPC());
+        return charRepo.getNPC();
       }
 
     [HttpPost]
@@ -36,9 +36,9 @@ namespace KillerAPP.Controllers
       return charRepo.getClasses();
     }
     [HttpPost]
-    public JsonResult getRace()
+    public List<Race> getRace()
     {
-      return Json(charRepo.getRaces());
+      return charRepo.getRaces();
     }
 
     [HttpPost]
