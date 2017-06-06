@@ -26,6 +26,10 @@ export class App {
 
     configureRouter(config, router) {
         this.router = router;
+
+        let step = new AuthorizeStep(this.authService);
+        config.addAuthorizeStep(step);
+
         config.title = 'Aurelia';
         config.map([
             {
@@ -39,7 +43,7 @@ export class App {
                 moduleId: 'subpages/create'
             },
             {
-                route: ['shop'],
+                route: ['shop/:id'],
                 name: 'shop',
                 moduleId: 'subpages/shop'
             },
@@ -76,7 +80,23 @@ export class App {
         });
     }
 
+    logout() {
+        return this.authService.logout()
+            .then(() => {
+                this.authenticated = this.authService.authenticated;
+                this.router.navigate("login");
+                this.title = "KVAS";
+
+                swal({
+                    title: "Logged out",
+                    type: "success",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+    }
 }
+
 @autoinject
 class AuthorizeStep {
     constructor(private authService: AuthService) { }
