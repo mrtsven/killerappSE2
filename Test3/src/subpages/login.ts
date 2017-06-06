@@ -15,7 +15,6 @@ export class Login {
     }
 
     login() {
-        console.log(this.username);
         this.auth.login({
             username: this.username
         }).then(response => {

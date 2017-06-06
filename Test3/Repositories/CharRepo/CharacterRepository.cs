@@ -43,7 +43,7 @@ namespace KillerAPP.Repositories
       }
     }
 
-    public void createCharacter(string name, int Class, int race)
+    public void createCharacter(string name, int race, int Class)
     {
       try
       {

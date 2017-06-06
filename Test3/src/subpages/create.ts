@@ -49,7 +49,14 @@ export class CreateChararacter {
     createCharacter() {
         this.http.fetch('character/create', {
             body: json(new create(this.name, this.selectedRace, this.selectedClass))
+        }); swal({
+            title: "Succesfully made a character",
+            type: "success",
+            showCancelButton: false,
+            showConfirmButton: false,
+            timer: 2000
         });
+        this.router.navigate("login");
     }
 
     getRaces() {
