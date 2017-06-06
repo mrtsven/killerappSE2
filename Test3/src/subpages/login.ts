@@ -1,4 +1,5 @@
-﻿import { autoinject } from "aurelia-framework";
+﻿import * as swal from 'sweetalert';
+import { autoinject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';

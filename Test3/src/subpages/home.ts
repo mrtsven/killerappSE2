@@ -1,4 +1,5 @@
-﻿import { autoinject } from "aurelia-framework";
+﻿import * as swal from 'sweetalert';
+import { autoinject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
@@ -46,11 +47,9 @@ export class home {
     }
 
     createCharacter() {
-        console.log(this.selectedRace);
         this.http.fetch('character/create', {
             body: json(new create(this.name, this.selectedRace, this.selectedClass))
         });
-
     }
 
     getRaces() {

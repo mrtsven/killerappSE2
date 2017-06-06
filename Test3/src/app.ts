@@ -17,6 +17,7 @@ export class App {
             
             { route: ['/', 'subpage'], name: 'subpage', moduleId: 'subpages/subpage' },
             { route: ['/', 'home'], name: 'home', moduleId: 'subpages/home' },
+            { route: ['/', 'login'], name: 'home', moduleId: 'subpages/login' },
         ]);
     }
 
