@@ -10,11 +10,37 @@ namespace KillerAPP.Repositories
   public class CharacterRepository : ICharacterRepository
   {
     IConnection connection;
-    List<Npc> npcList;
 
     public CharacterRepository(IConnection connection)
     {
       this.connection = connection;
+    }
+
+    public void npcLevel(int id)
+    {
+      try
+      {
+        SqlCommand sqlCommand = new SqlCommand("CalcLvl", connection.getConnection());
+
+        connection.Connect();
+        sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+        sqlCommand.Parameters.AddWithValue("@npcid", id);
+
+
+        sqlCommand.Connection = connection.getConnection();
+
+        sqlCommand.ExecuteNonQuery();
+      }
+
+      catch (Exception)
+      {
+        throw;
+      }
+
+      finally
+      {
+        connection.disConnect();
+      }
     }
 
     public void createCharacter(string name, int Class, int race)
@@ -78,7 +104,7 @@ namespace KillerAPP.Repositories
 
     public List<Npc> getNPC()
     {
-      npcList = new List<Npc>();
+      List<Npc> npcList = new List<Npc>();
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("SELECT * from table_NPC", connection.getConnection());
 

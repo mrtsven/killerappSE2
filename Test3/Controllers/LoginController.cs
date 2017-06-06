@@ -11,10 +11,8 @@ namespace KillerAPP.Controllers
   [Route("api/[controller]/[action]")]
   public class LoginController: Controller
     {
-    public class Login
-    {
-      public string charname { get; set; }
-    }
+    private string charname;
+    
     ILoginRepository loginRepo;
     public LoginController()
     {
@@ -22,9 +20,9 @@ namespace KillerAPP.Controllers
     }
 
     [HttpPost]
-    public void login([FromBody]Login login )
+    public void login([FromBody]string login )
     {
-      string name = login.charname;
+      string name = charname;
       loginRepo.loginCharacter(name);
     }
   }

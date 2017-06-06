@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "b467ff0e975dfaeab8a307ddee46f8baeb051ed8"
+    "signature": "cf67e446dc15f588ddba8e419b8bf7fbd337fb6e"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
           "Microsoft.ApplicationInsights.AspNetCore": "2.0.0",
           "Microsoft.AspNetCore": "1.1.1",
           "Microsoft.AspNetCore.Mvc": "1.1.2",
+          "Microsoft.AspNetCore.Server.IISIntegration": "1.1.2",
           "Microsoft.AspNetCore.StaticFiles": "1.1.2",
           "Microsoft.Extensions.Logging.Debug": "1.1.1",
           "Microsoft.NETCore.App": "1.1.1",
@@ -90,7 +91,7 @@
           "Microsoft.AspNetCore.Diagnostics": "1.1.1",
           "Microsoft.AspNetCore.Hosting": "1.1.1",
           "Microsoft.AspNetCore.Routing": "1.1.1",
-          "Microsoft.AspNetCore.Server.IISIntegration": "1.1.1",
+          "Microsoft.AspNetCore.Server.IISIntegration": "1.1.2",
           "Microsoft.AspNetCore.Server.Kestrel": "1.1.1",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.1",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.1.1",
@@ -106,8 +107,8 @@
           "Microsoft.AspNetCore.DataProtection": "1.1.1",
           "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
-          "Microsoft.AspNetCore.WebUtilities": "1.1.1",
-          "Microsoft.Extensions.ObjectPool": "1.1.0",
+          "Microsoft.AspNetCore.WebUtilities": "1.1.2",
+          "Microsoft.Extensions.ObjectPool": "1.1.1",
           "NETStandard.Library": "1.6.1"
         },
         "runtime": {
@@ -194,7 +195,7 @@
           "Microsoft.AspNetCore.Diagnostics.Abstractions": "1.1.1",
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
-          "Microsoft.AspNetCore.WebUtilities": "1.1.1",
+          "Microsoft.AspNetCore.WebUtilities": "1.1.2",
           "Microsoft.Extensions.FileProviders.Physical": "1.1.0",
           "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
           "Microsoft.Extensions.Options": "1.1.2",
@@ -225,7 +226,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "1.1.2",
-          "Microsoft.AspNetCore.Http": "1.1.1",
+          "Microsoft.AspNetCore.Http": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
           "Microsoft.Extensions.Configuration": "1.1.1",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.1",
@@ -289,11 +290,11 @@
           "lib/netstandard1.0/Microsoft.AspNetCore.Html.Abstractions.dll": {}
         }
       },
-      "microsoft.aspnetcore.http/1.1.1": {
+      "microsoft.aspnetcore.http/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
-          "Microsoft.AspNetCore.WebUtilities": "1.1.1",
-          "Microsoft.Extensions.ObjectPool": "1.1.0",
+          "Microsoft.AspNetCore.WebUtilities": "1.1.2",
+          "Microsoft.Extensions.ObjectPool": "1.1.1",
           "Microsoft.Extensions.Options": "1.1.2",
           "Microsoft.Net.Http.Headers": "1.1.2",
           "NETStandard.Library": "1.6.1",
@@ -353,7 +354,7 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Http.Features.dll": {}
         }
       },
-      "microsoft.aspnetcore.httpoverrides/1.1.1": {
+      "microsoft.aspnetcore.httpoverrides/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
           "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
@@ -448,7 +449,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Authorization": "1.1.1",
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
-          "Microsoft.AspNetCore.Http": "1.1.1",
+          "Microsoft.AspNetCore.Http": "1.1.2",
           "Microsoft.AspNetCore.Mvc.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "1.1.1",
           "Microsoft.AspNetCore.Routing": "1.1.1",
@@ -633,7 +634,7 @@
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
           "Microsoft.AspNetCore.Routing.Abstractions": "1.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
-          "Microsoft.Extensions.ObjectPool": "1.1.0",
+          "Microsoft.Extensions.ObjectPool": "1.1.1",
           "Microsoft.Extensions.Options": "1.1.2",
           "NETStandard.Library": "1.6.1"
         },
@@ -656,12 +657,12 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Routing.Abstractions.dll": {}
         }
       },
-      "microsoft.aspnetcore.server.iisintegration/1.1.1": {
+      "microsoft.aspnetcore.server.iisintegration/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
-          "Microsoft.AspNetCore.Http": "1.1.1",
+          "Microsoft.AspNetCore.Http": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
-          "Microsoft.AspNetCore.HttpOverrides": "1.1.1",
+          "Microsoft.AspNetCore.HttpOverrides": "1.1.2",
           "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
           "Microsoft.Extensions.Options": "1.1.2",
           "NETStandard.Library": "1.6.1",
@@ -709,7 +710,7 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
         }
       },
-      "microsoft.aspnetcore.webutilities/1.1.1": {
+      "microsoft.aspnetcore.webutilities/1.1.2": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "1.1.1",
           "Microsoft.Net.Http.Headers": "1.1.2",
@@ -1041,7 +1042,7 @@
           "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll": {}
         }
       },
-      "microsoft.extensions.objectpool/1.1.0": {
+      "microsoft.extensions.objectpool/1.1.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
         },
@@ -3229,12 +3230,12 @@
       "path": "microsoft.aspnetcore.html.abstractions/1.1.1",
       "hashPath": "microsoft.aspnetcore.html.abstractions.1.1.1.nupkg.sha512"
     },
-    "microsoft.aspnetcore.http/1.1.1": {
+    "microsoft.aspnetcore.http/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-chwq7cwAe+CnnGIvtarKxeti2hDTdqZfR2n7tLghPgJS/62fDJiQAWjYuZfWSv7uG6JHGQJruR55hfL2GGJxVA==",
-      "path": "microsoft.aspnetcore.http/1.1.1",
-      "hashPath": "microsoft.aspnetcore.http.1.1.1.nupkg.sha512"
+      "sha512": "sha512-Vn62+hBlhNIz4+lskY06KGvlXE88QtB70v2y1/J28tsUsS6a82aKsaK0CWHXf7WakpMBgzQ2hmLMu5jcraGCBg==",
+      "path": "microsoft.aspnetcore.http/1.1.2",
+      "hashPath": "microsoft.aspnetcore.http.1.1.2.nupkg.sha512"
     },
     "microsoft.aspnetcore.http.abstractions/1.1.2": {
       "type": "package",
@@ -3257,12 +3258,12 @@
       "path": "microsoft.aspnetcore.http.features/1.1.2",
       "hashPath": "microsoft.aspnetcore.http.features.1.1.2.nupkg.sha512"
     },
-    "microsoft.aspnetcore.httpoverrides/1.1.1": {
+    "microsoft.aspnetcore.httpoverrides/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RIb0Zdih2GW+BgR4px3iLd6/p8AlzDxbxcYY032FHKvuRWlLPGja/c5fdu9t6DHr7hsQl08yf3YcduWbscltbQ==",
-      "path": "microsoft.aspnetcore.httpoverrides/1.1.1",
-      "hashPath": "microsoft.aspnetcore.httpoverrides.1.1.1.nupkg.sha512"
+      "sha512": "sha512-mChMmo5ynjaChOkFF70u4WWDGnNFpOe7nlqsTBWkfGSXYPSSdUF1u2T0JD02w7Z7F1upSCcthoa5CbYVEwL4/w==",
+      "path": "microsoft.aspnetcore.httpoverrides/1.1.2",
+      "hashPath": "microsoft.aspnetcore.httpoverrides.1.1.2.nupkg.sha512"
     },
     "microsoft.aspnetcore.jsonpatch/1.1.1": {
       "type": "package",
@@ -3397,12 +3398,12 @@
       "path": "microsoft.aspnetcore.routing.abstractions/1.1.1",
       "hashPath": "microsoft.aspnetcore.routing.abstractions.1.1.1.nupkg.sha512"
     },
-    "microsoft.aspnetcore.server.iisintegration/1.1.1": {
+    "microsoft.aspnetcore.server.iisintegration/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5UWpke18BxarvshnRq6bAww1L+4KbSkYw+JPJSkM13IgxJ8QWuALQiEhjn4UAsJ4oROvYSlT5rQtraei3AIOsQ==",
-      "path": "microsoft.aspnetcore.server.iisintegration/1.1.1",
-      "hashPath": "microsoft.aspnetcore.server.iisintegration.1.1.1.nupkg.sha512"
+      "sha512": "sha512-5AiLQQeJz98E92PSr8pm+/d3wOX3okQgWKb1xwMVJQK39LdQUXPnEpqfF9VgpPagtno/Catm9oODXJ2vKNZx9Q==",
+      "path": "microsoft.aspnetcore.server.iisintegration/1.1.2",
+      "hashPath": "microsoft.aspnetcore.server.iisintegration.1.1.2.nupkg.sha512"
     },
     "microsoft.aspnetcore.server.kestrel/1.1.1": {
       "type": "package",
@@ -3418,12 +3419,12 @@
       "path": "microsoft.aspnetcore.staticfiles/1.1.2",
       "hashPath": "microsoft.aspnetcore.staticfiles.1.1.2.nupkg.sha512"
     },
-    "microsoft.aspnetcore.webutilities/1.1.1": {
+    "microsoft.aspnetcore.webutilities/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yxNSN5cpbZei2UIrUL5MTWSUKSA33dAZLrMIF6eE+XYwakxdWwgrbOTJz1gRJ/rUyvMN1Iu6ORcZr1/WMB0tzw==",
-      "path": "microsoft.aspnetcore.webutilities/1.1.1",
-      "hashPath": "microsoft.aspnetcore.webutilities.1.1.1.nupkg.sha512"
+      "sha512": "sha512-8j+1rkTQ47lzUKpH3O2Odt3f6YdYcfnY8hpVG14riZaqEfuO+n+CjZPTYh/3mbQ0+ZhT/3JqUD9gHP3gIGZ0PQ==",
+      "path": "microsoft.aspnetcore.webutilities/1.1.2",
+      "hashPath": "microsoft.aspnetcore.webutilities.1.1.2.nupkg.sha512"
     },
     "microsoft.dotnet.platformabstractions/1.1.1": {
       "type": "package",
@@ -3593,12 +3594,12 @@
       "path": "microsoft.extensions.logging.debug/1.1.1",
       "hashPath": "microsoft.extensions.logging.debug.1.1.1.nupkg.sha512"
     },
-    "microsoft.extensions.objectpool/1.1.0": {
+    "microsoft.extensions.objectpool/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8tg7DpFubtj98Lf+N+zpu5VXe9EHCPrqcukpsjC9BSfcnC0Oq8CUZKYUsLScS2pnqEkSNHwuHoWRtJ6xhMO/xg==",
-      "path": "microsoft.extensions.objectpool/1.1.0",
-      "hashPath": "microsoft.extensions.objectpool.1.1.0.nupkg.sha512"
+      "sha512": "sha512-Ex+iePf5X9XFCqm7u1hYAnZU/PJZp16Z6ve5EOY1doJQy3fHRvaO1cMpZf41TP71e0jMcfsNUSXX+PmlciWuJA==",
+      "path": "microsoft.extensions.objectpool/1.1.1",
+      "hashPath": "microsoft.extensions.objectpool.1.1.1.nupkg.sha512"
     },
     "microsoft.extensions.options/1.1.2": {
       "type": "package",

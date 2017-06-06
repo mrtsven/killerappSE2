@@ -12,6 +12,7 @@ namespace KillerAPP.Repositories
     List<Npc> getNPC();
     List<Class> getClasses();
     List<Race> getRaces();
+    void npcLevel(int id);
 
     }
 }
