@@ -28,7 +28,7 @@ export class Login {
                 timer: 2000
             });
 
-            this.router.navigate("shop");
+            this.router.navigateToRoute("shop");
         })
             .catch(err => {
                 swal({
