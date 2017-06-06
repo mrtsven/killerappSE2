@@ -1,12 +1,26 @@
-import { Router, RouterConfiguration } from 'aurelia-router'
 import { autoinject } from 'aurelia-framework';
+import { Router, RouterConfiguration, Next, Redirect, NavigationInstruction } from 'aurelia-router'
 import { HttpClient } from 'aurelia-fetch-client';
+import { FetchConfig } from 'aurelia-authentication';
+import { Container } from 'aurelia-dependency-injection';
+import { AuthService } from 'aurelia-authentication';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import * as jwt_decode from 'jwt-decode';
+
 
 @autoinject
 export class App {
     router: Router;
-    constructor(private http: HttpClient) {
+    authenticated: boolean;
+    title: string;
+
+    constructor(private http: HttpClient,
+        private config: FetchConfig,
+        private authService: AuthService,
+        private event: EventAggregator) {
         this.configHttp();
+        this.authenticated = this.authService.authenticated;
+        this.title = this.authService.authenticated ? "Welkom " + jwt_decode(this.authService.getAccessToken()).name : "KVAS";
     }
 
 
@@ -14,10 +28,26 @@ export class App {
         this.router = router;
         config.title = 'Aurelia';
         config.map([
-            
-            { route: ['/', 'subpage'], name: 'subpage', moduleId: 'subpages/subpage' },
-            { route: ['/', 'home'], name: 'home', moduleId: 'subpages/home' },
-            { route: ['/', 'login'], name: 'home', moduleId: 'subpages/login' },
+            {
+                route: ['subpage'],
+                name: 'subpage',
+                moduleId: 'subpages/subpage'
+            },
+            {
+                route: ['home'],
+                name: 'home',
+                moduleId: 'subpages/home'
+            },
+            {
+                route: ['shop'],
+                name: 'shop',
+                moduleId: 'subpages/shop'
+            },
+            {
+                route: ['/'],
+                name: 'login',
+                moduleId: 'subpages/login'
+            },
         ]);
     }
 
@@ -46,4 +76,20 @@ export class App {
         });
     }
 
+}
+@autoinject
+class AuthorizeStep {
+    constructor(private authService: AuthService) { }
+
+    run(navigationInstruction: NavigationInstruction, next: Next): Promise<any> {
+        if (navigationInstruction.getAllInstructions().some(i => i.config.auth)) {
+            let isLoggedIn = this.authService.isAuthenticated();
+
+            if (!isLoggedIn) {
+                return next.cancel(new Redirect('login'));
+            }
+        }
+
+        return next();
+    }
 }

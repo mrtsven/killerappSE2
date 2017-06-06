@@ -7,19 +7,14 @@ namespace KillerAPP.Domain
 {
     public class Character
     {
-    public int id;
-    public string name;
-    public int lvl;
-    public int xp;
-    public int healthPoints;
-    public int stamina;
-    public int strength;
-    public int charisma;
-    public int intelligence;
-    public Character(string name, int hp)
-    {
-      this.name = name;
-      this.healthPoints = hp;
-    }
+    public int id { get; set; }
+    public string name { get; set; }
+    public int lvl { get; set; }
+    public int xp { get; set; }
+    public int healthPoints { get; set; }
+    public int stamina { get; set; }
+    public int strength { get; set; }
+    public int charisma { get; set; }
+    public int intelligence { get; set; }
     }
 }

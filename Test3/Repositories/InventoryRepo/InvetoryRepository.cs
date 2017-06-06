@@ -53,7 +53,7 @@ namespace KillerAPP.Repositories.InventoryRepo
     {
       List<Inventory> listItems = new List<Inventory>();
       connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Item WHERE FK_Character = @charID", connection.getConnection());
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Inventory WHERE FK_Character = @charID", connection.getConnection());
       sqlCommand.Parameters.AddWithValue("@charID", id);
 
       using (SqlDataReader reader = sqlCommand.ExecuteReader())

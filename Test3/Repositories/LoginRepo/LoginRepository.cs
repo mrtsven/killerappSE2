@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KillerAPP.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -52,6 +53,41 @@ namespace KillerAPP.Repositories.LoginRepo
       }
 
       return login;
+    }
+    public Character find(string charname)
+    {
+      Character character = new Character();
+
+      try
+      {
+        connection.Connect();
+        SqlCommand sqlCommand = new SqlCommand("select * from table_character where name=@charname", connection.getConnection());
+        sqlCommand.Parameters.AddWithValue("@charname", charname);
+        SqlDataReader reader = sqlCommand.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+          while (reader.Read())
+          {
+            character.id = Convert.ToInt32(reader["id"]);
+            character.name = reader["name"].ToString();
+            character.lvl = Convert.ToInt32(reader["Lvl"]);
+            character.xp = Convert.ToInt32(reader["xp"]);
+            character.healthPoints = Convert.ToInt32(reader["healthPoints"]);
+            character.stamina = Convert.ToInt32(reader["stamina"]);
+            character.strength = Convert.ToInt32(reader["strength"]);
+            character.charisma = Convert.ToInt32(reader["charisma"]);
+            character.intelligence = Convert.ToInt32(reader["intelligence"]);
+          }
+        }
+      }
+
+      catch (Exception ex)
+      {
+        throw;
+      }
+
+      return character;
     }
   }
 }
