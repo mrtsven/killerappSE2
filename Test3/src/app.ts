@@ -39,7 +39,7 @@ export class App {
                 moduleId: 'subpages/create'
             },
             {
-                route: ['shop/:id'],
+                route: ['shop'],
                 name: 'shop',
                 moduleId: 'subpages/shop'
             },

@@ -20,7 +20,7 @@ namespace KillerAPP.Repositories.InventoryRepo
     {
       List<Item> listItems = new List<Item>();
       connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Item where item_id > 1", connection.getConnection());
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Item where ID_Item > 1", connection.getConnection());
       using (SqlDataReader reader = sqlCommand.ExecuteReader())
       {
         while (reader.Read())
