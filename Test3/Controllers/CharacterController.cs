@@ -30,18 +30,18 @@ namespace KillerAPP.Controllers
       return charRepo.getNPC();
       }
 
-    [HttpPost]
-    public List<Class> getClass()
-    {
-      return charRepo.getClasses();
-    }
-    [HttpPost]
-    public List<Race> getRace()
-    {
-      return charRepo.getRaces();
-    }
+      [HttpPost]
+      public List<Class> getClass()
+      {
+        return charRepo.getClasses();
+      }
+      [HttpPost]
+      public List<Race> getRace()
+      {
+        return charRepo.getRaces();
+      }
 
-    [HttpPost]
+     [HttpPost]
       public void create([FromBody] Create create)
       {
       string name = create.name;

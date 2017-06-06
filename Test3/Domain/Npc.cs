@@ -15,5 +15,11 @@ namespace KillerAPP.Domain
     public int charisma { get; set; }
     public int intelligence { get; set; }
     public string about { get; set; }
+
+    public void calcLevel()
+    {
+      int npcLvl = (healthPoints + stamina + strength + charisma + intelligence) / 10;
+    }
   }
+
 }
