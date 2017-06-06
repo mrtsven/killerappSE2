@@ -39,11 +39,11 @@ namespace KillerAPP.Controllers
     public string consent { get; set; }
   }
   [Route("api/[controller]/[action]")]
-  public class LoginController: Controller
+  public class AuthController: Controller
     {
     
     ILoginRepository loginRepo;
-    public LoginController()
+    public AuthController()
     {
       loginRepo = new LoginRepository(new Connection());
     }
@@ -51,13 +51,14 @@ namespace KillerAPP.Controllers
     [HttpPost]
     public AccessToken Login([FromBody] dynamic credentials)
     {
-      string charname = credentials.username;
+      string username = credentials.username;
 
-      if (!loginRepo.loginCharacter(charname)) throw new UnauthorizedAccessException();
-      Character user = loginRepo.find(charname);
+      if (!loginRepo.loginCharacter(username)) throw new UnauthorizedAccessException();
+      Character user = loginRepo.find(username);
 
       return CreateAccessToken(user.id.ToString(), user.name);
     }
+
     private static AccessToken CreateAccessToken(string userId,
                                                  string name)
     {

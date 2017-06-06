@@ -69,7 +69,7 @@ namespace KillerAPP.Repositories.LoginRepo
         {
           while (reader.Read())
           {
-            character.id = Convert.ToInt32(reader["id"]);
+            character.id = Convert.ToInt32(reader["id_character"]);
             character.name = reader["name"].ToString();
             character.lvl = Convert.ToInt32(reader["Lvl"]);
             character.xp = Convert.ToInt32(reader["xp"]);

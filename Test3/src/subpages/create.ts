@@ -33,7 +33,7 @@ class Race {
 }
 
 @autoinject
-export class home {
+export class CreateChararacter {
     name;
     charclass;
     races;

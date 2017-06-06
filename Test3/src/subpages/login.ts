@@ -6,7 +6,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router'
 
 @autoinject
-export class login {
+export class Login {
     username = "";
     constructor(private auth: AuthService,
         private http: HttpClient,
@@ -15,8 +15,9 @@ export class login {
     }
 
     login() {
+        console.log(this.username);
         this.auth.login({
-            charname: this.username
+            username: this.username
         }).then(response => {
             this.event.publish('signedIn', true);
 

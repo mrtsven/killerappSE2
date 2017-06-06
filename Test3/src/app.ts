@@ -34,12 +34,12 @@ export class App {
                 moduleId: 'subpages/subpage'
             },
             {
-                route: ['home'],
-                name: 'home',
-                moduleId: 'subpages/home'
+                route: ['create'],
+                name: 'create',
+                moduleId: 'subpages/create'
             },
             {
-                route: ['shop'],
+                route: ['shop/:id'],
                 name: 'shop',
                 moduleId: 'subpages/shop'
             },
