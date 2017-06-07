@@ -356,26 +356,84 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define('subpages/profile',["require", "exports", "aurelia-framework", "aurelia-fetch-client", "aurelia-event-aggregator", "aurelia-router", "../Character"], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, aurelia_event_aggregator_1, aurelia_router_1, Character_1) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+define('subpages/profile',["require", "exports", "aurelia-framework", "aurelia-fetch-client", "aurelia-event-aggregator", "aurelia-authentication", "aurelia-router", "../Character", "jwt-decode"], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, aurelia_event_aggregator_1, aurelia_authentication_1, aurelia_router_1, Character_1, jwt_decode) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var profile = (function () {
-        function profile(http, event, router, character) {
+        function profile(http, event, auth, router, character) {
             this.http = http;
             this.event = event;
+            this.auth = auth;
             this.router = router;
             this.character = character;
+            this.getCharacter();
         }
+        profile.prototype.getCharacter = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var data, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4, this.http.fetch('character/getCharacter', {
+                                body: aurelia_fetch_client_1.json({
+                                    "item1": jwt_decode(this.auth.getAccessToken()).name
+                                })
+                            })];
+                        case 1:
+                            data = _b.sent();
+                            _a = this;
+                            return [4, data.json()];
+                        case 2:
+                            _a.character = _b.sent();
+                            return [2];
+                    }
+                });
+            });
+        };
         return profile;
     }());
     profile = __decorate([
         aurelia_framework_1.autoinject,
-        __metadata("design:paramtypes", [aurelia_fetch_client_1.HttpClient, aurelia_event_aggregator_1.EventAggregator, aurelia_router_1.Router, Character_1.Character])
+        __metadata("design:paramtypes", [aurelia_fetch_client_1.HttpClient, aurelia_event_aggregator_1.EventAggregator, aurelia_authentication_1.AuthService, aurelia_router_1.Router, Character_1.Character])
     ], profile);
     exports.profile = profile;
 });
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL3Byb2ZpbGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0lBUUEsSUFBYSxPQUFPO1FBQ2hCLGlCQUFvQixJQUFnQixFQUFVLEtBQXNCLEVBQVUsTUFBYyxFQUFVLFNBQW9CO1lBQXRHLFNBQUksR0FBSixJQUFJLENBQVk7WUFBVSxVQUFLLEdBQUwsS0FBSyxDQUFpQjtZQUFVLFdBQU0sR0FBTixNQUFNLENBQVE7WUFBVSxjQUFTLEdBQVQsU0FBUyxDQUFXO1FBRzFILENBQUM7UUFHTCxjQUFDO0lBQUQsQ0FQQSxBQU9DLElBQUE7SUFQWSxPQUFPO1FBRG5CLDhCQUFVO3lDQUVtQixpQ0FBVSxFQUFpQiwwQ0FBZSxFQUFrQix1QkFBTSxFQUFxQixxQkFBUztPQURqSCxPQUFPLENBT25CO0lBUFksMEJBQU8iLCJmaWxlIjoic3VicGFnZXMvcHJvZmlsZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIHN3YWwgZnJvbSAnc3dlZXRhbGVydCc7XG5pbXBvcnQgeyBhdXRvaW5qZWN0IH0gZnJvbSBcImF1cmVsaWEtZnJhbWV3b3JrXCI7XG5pbXBvcnQgeyBIdHRwQ2xpZW50LCBqc29uIH0gZnJvbSBcImF1cmVsaWEtZmV0Y2gtY2xpZW50XCI7XG5pbXBvcnQgeyBFdmVudEFnZ3JlZ2F0b3IgfSBmcm9tICdhdXJlbGlhLWV2ZW50LWFnZ3JlZ2F0b3InO1xuaW1wb3J0IHsgUm91dGVyIH0gZnJvbSAnYXVyZWxpYS1yb3V0ZXInO1xuaW1wb3J0IHsgQ2hhcmFjdGVyIH0gZnJvbSAnLi4vQ2hhcmFjdGVyJztcblxuQGF1dG9pbmplY3RcbmV4cG9ydCBjbGFzcyBwcm9maWxlIHtcbiAgICBjb25zdHJ1Y3Rvcihwcml2YXRlIGh0dHA6IEh0dHBDbGllbnQsIHByaXZhdGUgZXZlbnQ6IEV2ZW50QWdncmVnYXRvciwgcHJpdmF0ZSByb3V0ZXI6IFJvdXRlciwgcHJpdmF0ZSBjaGFyYWN0ZXI6IENoYXJhY3RlcilcbiAgICB7XHJcblxyXG4gICAgfVxuXG5cclxufVxyXG4iXSwic291cmNlUm9vdCI6InNyYyJ9
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN1YnBhZ2VzL3Byb2ZpbGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFVQSxJQUFhLE9BQU87UUFDaEIsaUJBQW9CLElBQWdCLEVBQVUsS0FBc0IsRUFBVSxJQUFpQixFQUFVLE1BQWMsRUFBVSxTQUFvQjtZQUFqSSxTQUFJLEdBQUosSUFBSSxDQUFZO1lBQVUsVUFBSyxHQUFMLEtBQUssQ0FBaUI7WUFBVSxTQUFJLEdBQUosSUFBSSxDQUFhO1lBQVUsV0FBTSxHQUFOLE1BQU0sQ0FBUTtZQUFVLGNBQVMsR0FBVCxTQUFTLENBQVc7WUFFakosSUFBSSxDQUFDLFlBQVksRUFBRSxDQUFDO1FBQ3hCLENBQUM7UUFHSyw4QkFBWSxHQUFsQjs7Ozs7Z0NBQ3lCLFdBQU0sSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsd0JBQXdCLEVBQUU7Z0NBQ2pFLElBQUksRUFBRSwyQkFBSSxDQUFDO29DQUNQLE9BQU8sRUFBRSxVQUFVLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxjQUFjLEVBQUUsQ0FBQyxDQUFDLElBQUk7aUNBQ3ZELENBQUM7NkJBQ0wsQ0FBQyxFQUFBOzttQ0FKbUIsU0FJbkI7NEJBQ0YsS0FBQSxJQUFJLENBQUE7NEJBQWEsV0FBTSxJQUFJLENBQUMsSUFBSSxFQUFFLEVBQUE7OzRCQUFsQyxHQUFLLFNBQVMsR0FBRyxTQUFpQixDQUFDOzs7OztTQUN0QztRQUVMLGNBQUM7SUFBRCxDQWhCQSxBQWdCQyxJQUFBO0lBaEJZLE9BQU87UUFEbkIsOEJBQVU7eUNBRW1CLGlDQUFVLEVBQWlCLDBDQUFlLEVBQWdCLG9DQUFXLEVBQWtCLHVCQUFNLEVBQXFCLHFCQUFTO09BRDVJLE9BQU8sQ0FnQm5CO0lBaEJZLDBCQUFPIiwiZmlsZSI6InN1YnBhZ2VzL3Byb2ZpbGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBzd2FsIGZyb20gJ3N3ZWV0YWxlcnQnO1xuaW1wb3J0IHsgYXV0b2luamVjdCB9IGZyb20gXCJhdXJlbGlhLWZyYW1ld29ya1wiO1xuaW1wb3J0IHsgSHR0cENsaWVudCwganNvbiB9IGZyb20gXCJhdXJlbGlhLWZldGNoLWNsaWVudFwiO1xuaW1wb3J0IHsgRXZlbnRBZ2dyZWdhdG9yIH0gZnJvbSAnYXVyZWxpYS1ldmVudC1hZ2dyZWdhdG9yJztcbmltcG9ydCB7IEF1dGhTZXJ2aWNlIH0gZnJvbSBcImF1cmVsaWEtYXV0aGVudGljYXRpb25cIlxuaW1wb3J0IHsgUm91dGVyIH0gZnJvbSAnYXVyZWxpYS1yb3V0ZXInO1xuaW1wb3J0IHsgQ2hhcmFjdGVyIH0gZnJvbSAnLi4vQ2hhcmFjdGVyJztcbmltcG9ydCAqIGFzIGp3dF9kZWNvZGUgZnJvbSAnand0LWRlY29kZSc7XG5cbkBhdXRvaW5qZWN0XG5leHBvcnQgY2xhc3MgcHJvZmlsZSB7XG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSBodHRwOiBIdHRwQ2xpZW50LCBwcml2YXRlIGV2ZW50OiBFdmVudEFnZ3JlZ2F0b3IsIHByaXZhdGUgYXV0aDogQXV0aFNlcnZpY2UsIHByaXZhdGUgcm91dGVyOiBSb3V0ZXIsIHByaXZhdGUgY2hhcmFjdGVyOiBDaGFyYWN0ZXIpXG4gICAge1xuICAgICAgICB0aGlzLmdldENoYXJhY3RlcigpO1xyXG4gICAgfVxuICAgIFxuXG4gICAgYXN5bmMgZ2V0Q2hhcmFjdGVyKCkge1xuICAgICAgICBsZXQgZGF0YTogUmVzcG9uc2UgPSBhd2FpdCB0aGlzLmh0dHAuZmV0Y2goJ2NoYXJhY3Rlci9nZXRDaGFyYWN0ZXInLCB7XHJcbiAgICAgICAgICAgIGJvZHk6IGpzb24oe1xyXG4gICAgICAgICAgICAgICAgXCJpdGVtMVwiOiBqd3RfZGVjb2RlKHRoaXMuYXV0aC5nZXRBY2Nlc3NUb2tlbigpKS5uYW1lXHJcbiAgICAgICAgICAgIH0pXHJcbiAgICAgICAgfSk7XHJcbiAgICAgICAgdGhpcy5jaGFyYWN0ZXIgPSBhd2FpdCBkYXRhLmpzb24oKTtcclxuICAgIH1cblxyXG59XHJcbiJdLCJzb3VyY2VSb290Ijoic3JjIn0=
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -485,7 +543,7 @@ define('subpages/subpage',["require", "exports", "aurelia-framework", "aurelia-f
 define('text!app.html', ['module'], function(module) { module.exports = "\n<template bindable=\"router\">\r\n  <require from=\"sweetalert/dist/sweetalert.css\"></require>\r\n  <div id=\"app\">\r\n    <div class=\"strip strip__top\"></div>\r\n    <nav class=\"navbar navbar-default navbar-static-top\">\r\n      <div class=\"container\">\r\n        <div class=\"navbar-header\">\r\n          <!-- Collapsed Hamburger -->\r\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#app-navbar-collapse\">\r\n            <span class=\"sr-only\">Toggle Navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <a class=\"navbar-brand hidden-xs\" href=\"/\">\r\n            ${title}\r\n          </a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\" id=\"app-navbar-collapse\">\r\n          <!-- Right Side Of Navbar -->\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n            <li role=\"presentation\"><a route-href=\"route: login\">Login</a></li>\r\n            <li role=\"presentation\"><a route-href=\"route: create\">Register</a></li>\r\n            <li role=\"presentation\"><a route-href=\"route: shop\" show.bind=\"authenticated\">Shop</a></li>\r\n            <li role=\"presentation\"><a route-href=\"route: subpage\" show.bind=\"authenticated\">NPC</a></li>\n            <li role=\"presentation\"><a route-href=\"route: profile\" show.bind=\"authenticated\">Profile</a></li>\n            <li role=\"presentation\"><a  href=\"#\" click.delegate=\"logout()\" show.bind=\"authenticated\">Logout</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    <router-view></router-view>\r\n  </div>\r\n  <div id=\"footer\">\r\n    <p>KVAS 2017</p>\r\n  </div>\r\n  <div class=\"strip strip__footer\"></div>\r\n</template>\r\n"; });
 define('text!subpages/create.html', ['module'], function(module) { module.exports = "<template>\n  <form method=\"POST\" submit.delegate=\"createCharacter()\">\r\n    <h4>\r\n      Character name:<input type=\"text\" id=\"name\" value.bind=\"name\">\r\n      <br />\r\n      <select value.bind=\"selectedRace\">\r\n        <option>Select A Class</option>\r\n        <option repeat.for=\"class of charclass\" value.bind=\"class.id\">${class.name}</option>\r\n      </select>\n      <br />\n      <select value.bind=\"selectedClass\">\r\n        <option>Select A Race</option>\r\n        <option repeat.for=\"race of races\" value.bind=\"race.id\">${race.faction}</option>\r\n      </select>\r\n    </h4>\r\n\r\n\r\n    <button id=\"submit\" type=\"submit\" class=\"btn btn-primary\" click.delegate=\"createCharacter()\">\r\n      Create\r\n    </button>\n   </form>\r\n</template>"; });
 define('text!subpages/login.html', ['module'], function(module) { module.exports = "<template>\n  <div class=\"panel-body\">\r\n    <form class=\"form-horizontal\" role=\"form\" method=\"POST\" submit.delegate=\"login()\">\r\n      <div class=\"form-group\">\r\n        <label for=\"email\" class=\"col-md-4 control-label\">Character name</label>\r\n        <div class=\"col-md-6\">\r\n          <input id=\"username\" type=\"text\" class=\"form-control\" name=\"username\" value.bind=\"username\" required autofocus>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <div class=\"col-md-8 col-md-offset-4\">\r\n          <button type=\"submit\" class=\"btn btn-primary\">\r\n            Login\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\n</template>\r\n"; });
-define('text!subpages/profile.html', ['module'], function(module) { module.exports = "<template>\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n          <div class=\"panel panel-primary\">\r\n            <div class=\"panel-heading\">\r\n              <span>Profiel</span>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n              <form class=\"form-horizontal\">\r\n                <h4>\r\n                  Character name:${character.name}\r\n                  <br />\r\n                  Healthpoints:\r\n                </h4>\r\n\r\n                <p>\n                  <span>Stats:</span>\n                  <br />\r\n                  Stamina:\r\n                  <br />\r\n                  Strength:\r\n                  <br />\r\n                  Intelligence:\r\n                  <br />\r\n                  Charisma:\r\n                  <br />\r\n                  Gold:\r\n                </p>\r\n              </form>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\n</template>"; });
+define('text!subpages/profile.html', ['module'], function(module) { module.exports = "<template>\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n          <div class=\"panel panel-primary\">\r\n            <div class=\"panel-heading\">\r\n              <span>Profiel</span>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n              <form class=\"form-horizontal\">\r\n                <h4>\r\n                  Character name:${character.name}\r\n                  <br />\r\n                  Healthpoints:${character.healthPoints}\n                  <br />\n                  Race:\n                  <br />\n                  Class:\r\n                </h4>\r\n\r\n                <p>\n                  <span>Stats</span>\n                  <br />\r\n                  Stamina:${character.stamina}\r\n                  <br />\r\n                  Strength:${character.strength}\r\n                  <br />\r\n                  Intelligence:${character.intelligence}\r\n                  <br />\r\n                  Charisma:${character.charisma}\r\n                  <br />\r\n                  Gold:${character.gold}\r\n                </p>\r\n              </form>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\n</template>"; });
 define('text!subpages/shop.html', ['module'], function(module) { module.exports = "<template>\n  <h2>Gold available:</h2>\n  <table class=\"table table-hover\">\r\n    <tr>\r\n      <th>Item</th>\r\n      <th>Cost</th>\r\n      <th></th>\r\n    </tr>\r\n    <tr repeat.for=\"item of items\">\r\n      <td>${item.name}</td>\r\n      <td >${item.gold}GP</td>\r\n\r\n      <td>\r\n        <a class=\"btn btn-default\" click.delegate=\"buyItem(item.id)\" role=\"button\"><span aria-hidden=\"true\"></span> Buy</a>\r\n      </td>\r\n    </tr>\r\n  </table>\n</template>\r\n"; });
 define('text!subpages/subpage.html', ['module'], function(module) { module.exports = "<template>\r\n  <ul class=\"list-group\">\r\n    <li repeat.for=\"npc of npcs\" class=\"list-group-item \">NPC:${npc.name} Level: ${npc.lvl}\r\n    </li>\r\n  </ul>\r\n</template>\r\n"; });
 //# sourceMappingURL=app-bundle.js.map
