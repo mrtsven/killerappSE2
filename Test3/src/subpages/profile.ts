@@ -23,5 +23,13 @@ export class profile {
         });
         this.character = await data.json();
     }
+    async getArmor() {
+        let data: Response = await this.http.fetch('inventory/getarmor', {
+            body: json({
+                "item1": jwt_decode(this.auth.getAccessToken()).userid
+            })
+        });
+        this.character = await data.json();
+    }
 
 }

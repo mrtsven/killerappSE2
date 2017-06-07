@@ -31,9 +31,14 @@ namespace KillerAPP.Controllers
     }
 
     [HttpPost]
-    public List<Inventory> getInventory([FromBody] Tuple<int> parameters)
+    public List<Inventory> getArmor([FromBody] Tuple<int> parameters)
     {
-      return invRepo.getInventory(parameters.Item1);
+      return invRepo.getArmor(parameters.Item1);
+    }
+    [HttpPost]
+    public List<Inventory> getWeapon([FromBody] Tuple<int> parameters)
+    {
+      return invRepo.getWeapon(parameters.Item1);
     }
   }
 }
