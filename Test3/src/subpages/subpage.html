@@ -1,6 +1,29 @@
 ﻿<template>
-  <ul class="list-group">
-    <li repeat.for="npc of npcs" class="list-group-item ">NPC:${npc.name} Level: ${npc.lvl}
-    </li>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span>NPC</span>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal">
+              <table class="table table-hover">
+                <tr>
+                  <th>Name</th>
+                  <th>Level</th>
+                  <th>Description</th>
+                </tr>
+                <tr repeat.for="npc of npcs">
+                  <td>${npc.name}</td>
+                  <td>${npc.lvl}</td>
+                  <td>${npc.about}</td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

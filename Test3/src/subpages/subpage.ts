@@ -1,5 +1,4 @@
-﻿
-import { autoinject } from "aurelia-framework";
+﻿import { autoinject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
@@ -10,7 +9,6 @@ export class subpage {
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
         this.getNpcs();
     }
-
     getNpcs() {
         this.http.fetch('character/getNpcs', {
             body: json(this.npcs)
@@ -21,4 +19,5 @@ export class subpage {
                 console.log(data);
             });
     }
+
 }

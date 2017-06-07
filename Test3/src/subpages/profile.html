@@ -33,6 +33,24 @@
                 </p>
               </form>
             </div>
+            <div class="panel-heading">
+              <span>Inventory</span>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal">
+                <table class="table table-hover">
+                  <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th></th>
+                  </tr>
+                  <tr repeat.for="item of items">
+                    <td>${item.name}</td>
+                    <td>${item.about}GP</td>
+                  </tr>
+                </table>
+              </form>
+            </div>
           </div>
         </div>
       </div>
