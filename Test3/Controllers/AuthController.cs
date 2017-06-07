@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using KillerAPP.Repositories.LoginRepo;
+using KillerAPP.Repositories;
 using KillerAPP.Domain;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
@@ -42,10 +42,10 @@ namespace KillerAPP.Controllers
   public class AuthController: Controller
     {
     
-    ILoginRepository loginRepo;
+    ICharacterRepository charRepo;
     public AuthController()
     {
-      loginRepo = new LoginRepository(new Connection());
+      charRepo = new CharacterRepository(new Connection());
     }
 
     [HttpPost]
@@ -53,8 +53,8 @@ namespace KillerAPP.Controllers
     {
       string username = credentials.username;
 
-      if (!loginRepo.loginCharacter(username)) throw new UnauthorizedAccessException();
-      Character user = loginRepo.find(username);
+      if (!charRepo.loginCharacter(username)) throw new UnauthorizedAccessException();
+      Character user = charRepo.find(username);
 
       return CreateAccessToken(user.id.ToString(), user.name);
     }

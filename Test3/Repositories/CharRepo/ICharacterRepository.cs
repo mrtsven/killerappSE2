@@ -12,6 +12,8 @@ namespace KillerAPP.Repositories
     List<Npc> getNPC();
     List<Class> getClasses();
     List<Race> getRaces();
+    bool loginCharacter(string name);
+    Character find(string charname);
 
     }
 }

@@ -7,6 +7,7 @@ import { Character } from '../Character';
 
 @autoinject
 export class profile {
+    player = [];
     constructor(private http: HttpClient, private event: EventAggregator, private router: Router, private character: Character)
     {
 

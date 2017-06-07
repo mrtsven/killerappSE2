@@ -23,6 +23,10 @@ namespace KillerAPP.Controllers
       {
       charRepo = new CharacterRepository(new Connection());
       }
+      public Character getCharacter(string name)
+      {
+      return charRepo.find(name);
+      } 
 
       [HttpPost]
       public List<Npc> getNpcs()
