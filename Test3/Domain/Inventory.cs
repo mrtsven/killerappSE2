@@ -8,9 +8,12 @@ namespace KillerAPP.Domain
     public class Inventory
     {
     public int ID { get; set; }
-    public int item_id { get; set; }
-    public int character_id { get; set; }
-    public int npc_id { get; set; }
+    public string name { get; set; }
+    public int lvl_req { get; set; }
+    public string type_armor { get; set; }
+    public string type_weapon { get; set; }
+    public int durability { get; set; }
+    public string about { get; set; }
 
     }
 }

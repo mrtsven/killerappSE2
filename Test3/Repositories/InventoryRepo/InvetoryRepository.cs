@@ -20,7 +20,7 @@ namespace KillerAPP.Repositories.InventoryRepo
     {
       List<Item> listItems = new List<Item>();
       connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Item where ID_Item > 1", connection.getConnection());
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Item", connection.getConnection());
       using (SqlDataReader reader = sqlCommand.ExecuteReader())
       {
         while (reader.Read())
@@ -49,18 +49,19 @@ namespace KillerAPP.Repositories.InventoryRepo
       return item;
     }
 
-  public List<Inventory> getInventory(int id)
+    public List<Inventory> getWeapon(int id)
     {
+
       List<Inventory> listItems = new List<Inventory>();
       connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("SELECT * from table_Inventory WHERE FK_Character = @charID", connection.getConnection());
+      SqlCommand sqlCommand = new SqlCommand("getAllWeapons", connection.getConnection());
       sqlCommand.Parameters.AddWithValue("@charID", id);
 
       using (SqlDataReader reader = sqlCommand.ExecuteReader())
       {
         while (reader.Read())
         {
-          listItems.Add(CreateInventoryFromReader(reader));
+          listItems.Add(CreateWeaponInventoryFromReader(reader));
         }
       }
 
@@ -68,14 +69,51 @@ namespace KillerAPP.Repositories.InventoryRepo
       return listItems;
     }
 
-    private Inventory CreateInventoryFromReader(SqlDataReader reader)
+    private Inventory CreateWeaponInventoryFromReader(SqlDataReader reader)
     {
       Inventory inventory = new Inventory
       {
-        ID = Convert.ToInt32(reader["ID_Inventory"]),
-        item_id = Convert.ToInt32(reader["FK_Item"]),
-        character_id = Convert.ToInt32(reader["FK_Character"]),
-        npc_id = Convert.ToInt32(reader["FK_NPC"])
+        ID = Convert.ToInt32(reader["ID_Item"]),
+        name = Convert.ToString(reader["name"]),
+        lvl_req = Convert.ToInt32(reader["lvl_req"]),
+        type_armor = Convert.ToString(reader["type_weapon"]),
+        durability = Convert.ToInt32(reader["durability"]),
+        about = Convert.ToString(reader["about"])
+
+      };
+      return inventory;
+    }
+
+    public List<Inventory> getArmor(int id)
+    {    
+
+      List<Inventory> listItems = new List<Inventory>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("getAllArmor", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@charID", id);
+
+      using (SqlDataReader reader = sqlCommand.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          listItems.Add(CreateArmorInventoryFromReader(reader));
+        }
+      }
+
+      connection.disConnect();
+      return listItems;
+    }
+
+    private Inventory CreateArmorInventoryFromReader(SqlDataReader reader)
+    {
+      Inventory inventory = new Inventory
+      {
+        ID = Convert.ToInt32(reader["ID_Item"]),
+        name = Convert.ToString(reader["name"]),
+        lvl_req = Convert.ToInt32(reader["lvl_req"]),
+        type_armor = Convert.ToString(reader["type_armor"]),
+        durability = Convert.ToInt32(reader["durability"]),
+        about = Convert.ToString(reader["about"])
 
       };
       return inventory;

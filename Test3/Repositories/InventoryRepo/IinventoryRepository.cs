@@ -8,7 +8,8 @@ namespace KillerAPP.Repositories.InventoryRepo
 {
     public interface IinventoryRepository
     {
-    List<Inventory> getInventory(int id);
+    List<Inventory> getArmor(int id);
+    List<Inventory> getWeapon(int id);
     List<Item> getItems();
     void buyItem(int itemid, int userid);
     }
