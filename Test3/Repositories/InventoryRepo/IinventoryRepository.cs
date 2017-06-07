@@ -10,5 +10,6 @@ namespace KillerAPP.Repositories.InventoryRepo
     {
     List<Inventory> getInventory(int id);
     List<Item> getItems();
+    void buyItem(int itemid, int userid);
     }
 }

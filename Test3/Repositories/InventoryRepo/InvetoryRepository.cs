@@ -81,5 +81,29 @@ namespace KillerAPP.Repositories.InventoryRepo
       return inventory;
     }
 
+    public void buyItem(int itemid, int userid)
+    {
+      try
+      {
+        SqlCommand sqlCommand = new SqlCommand("insert into table_inventory (FK_Item, FK_Character) VALUES (@item_id, @userid)", connection.getConnection());
+        connection.Connect();
+        sqlCommand.Parameters.AddWithValue("@item_id", itemid);
+        sqlCommand.Parameters.AddWithValue("@userid", userid);
+
+        sqlCommand.Connection = connection.getConnection();
+
+        sqlCommand.ExecuteNonQuery();
+      }
+
+      catch (Exception)
+      {
+        throw;
+      }
+
+      finally
+      {
+        connection.disConnect();
+      }
+    }
   }
 }
