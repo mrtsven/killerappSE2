@@ -11,6 +11,7 @@ namespace KillerAPP.Domain
     public string name { get; set; }
     public int lvl { get; set; }
     public int xp { get; set; }
+    public int gold { get; set; }
     public int healthPoints { get; set; }
     public int stamina { get; set; }
     public int strength { get; set; }

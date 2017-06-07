@@ -6,6 +6,7 @@ import { Container } from 'aurelia-dependency-injection';
 import { AuthService } from 'aurelia-authentication';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import * as jwt_decode from 'jwt-decode';
+import { Character } from './Character';
 
 
 @autoinject
@@ -17,10 +18,12 @@ export class App {
     constructor(private http: HttpClient,
         private config: FetchConfig,
         private authService: AuthService,
-        private event: EventAggregator) {
+        private event: EventAggregator,
+        private character: Character) {
         this.configHttp();
         this.authenticated = this.authService.authenticated;
         this.title = this.authService.authenticated ? "Welkom " + jwt_decode(this.authService.getAccessToken()).name : "KVAS";
+        
     }
 
 
@@ -32,6 +35,11 @@ export class App {
 
         config.title = 'Aurelia';
         config.map([
+            {
+                route: ['profile'],
+                name: 'profile',
+                moduleId: 'subpages/profile'
+            },
             {
                 route: ['subpage'],
                 name: 'subpage',

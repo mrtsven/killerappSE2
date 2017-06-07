@@ -3,18 +3,7 @@ import { autoinject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
-
-class Character {
-    id: number;
-    name: string;
-     lvl: number;
-     xp: number;
-     healthPoints: number;
-     stamina: number;
-     strength: number;
-     charisma: number;
-     intelligence: number;
-}
+import { Character } from '../Character';
 
 class Class {
     id: number;
@@ -41,7 +30,7 @@ export class CreateChararacter {
     selectedRace: number;
     selectedClass: number;
 
-    constructor(private http: HttpClient, private event: EventAggregator, private router: Router) {
+    constructor(private http: HttpClient, private event: EventAggregator, private router: Router, private character: Character) {
         this.getRaces();
         this.getClasses();
     }
