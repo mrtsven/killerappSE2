@@ -55,7 +55,8 @@ namespace KillerAPP.Repositories.InventoryRepo
       List<Inventory> listItems = new List<Inventory>();
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("getAllWeapons", connection.getConnection());
-      sqlCommand.Parameters.AddWithValue("@charID", id);
+      sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+      sqlCommand.Parameters.AddWithValue("@CharID", id);
 
       using (SqlDataReader reader = sqlCommand.ExecuteReader())
       {
@@ -90,7 +91,9 @@ namespace KillerAPP.Repositories.InventoryRepo
       List<Inventory> listItems = new List<Inventory>();
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("getAllArmor", connection.getConnection());
-      sqlCommand.Parameters.AddWithValue("@charID", id);
+      
+      sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+      sqlCommand.Parameters.AddWithValue("@CharID", id);
 
       using (SqlDataReader reader = sqlCommand.ExecuteReader())
       {

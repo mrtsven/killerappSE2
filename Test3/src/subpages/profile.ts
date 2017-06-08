@@ -9,9 +9,13 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class profile {
+    inventoryArmor;
+    inventoryWeapon;
     constructor(private http: HttpClient, private event: EventAggregator, private auth: AuthService, private router: Router, private character: Character)
     {
         this.getCharacter();
+        this.getArmor();
+        this.getWeapon();
     }
     
 
@@ -29,7 +33,16 @@ export class profile {
                 "item1": jwt_decode(this.auth.getAccessToken()).userid
             })
         });
-        this.character = await data.json();
+        this.inventoryArmor = await data.json();
+    }
+    async getWeapon() {
+ 
+        let data: Response = await this.http.fetch('inventory/getweapon', {
+            body: json({
+                "item1": jwt_decode(this.auth.getAccessToken()).userid
+            })
+        });
+        this.inventoryWeapon = await data.json();
     }
 
 }

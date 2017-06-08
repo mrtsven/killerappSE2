@@ -41,10 +41,3 @@ export class shop
     }
 }
 
-export class item {
-    itemid: number;
-    constructor(itemid) {
-        this.itemid = itemid;
-    }
-}
-

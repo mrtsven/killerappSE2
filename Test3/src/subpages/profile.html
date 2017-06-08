@@ -12,10 +12,6 @@
                   Name:${character.name}
                   <br />
                   Healthpoints:${character.healthPoints}
-                  <br />
-                  Race:
-                  <br />
-                  Class:
                 </h4>
 
                 <p>
@@ -28,13 +24,11 @@
                   Intelligence:${character.intelligence}
                   <br />
                   Charisma:${character.charisma}
-                  <br />
-                  Gold:${character.gold}
                 </p>
               </form>
             </div>
             <div class="panel-heading">
-              <span>Inventory</span>
+              <span>Inventory Gold:${character.gold}</span>
             </div>
             <div class="panel-body">
               <form class="form-horizontal">
@@ -44,9 +38,13 @@
                     <th>Description</th>
                     <th></th>
                   </tr>
-                  <tr repeat.for="item of items">
+                  <tr repeat.for="item of inventoryArmor">
                     <td>${item.name}</td>
-                    <td>${item.about}GP</td>
+                    <td>${item.about}</td>
+                  </tr>
+                  <tr repeat.for="item of inventoryWeapon">
+                    <td>${item.name}</td>
+                    <td>${item.about}</td>
                   </tr>
                 </table>
               </form>
