@@ -1,5 +1,5 @@
 {
-  "name": "Test3",
+  "name": "Proftaak",
   "type": "project:application",
   "platform": {
     "id": "aspnetcore",
@@ -25,10 +25,10 @@
     "source": "src/**/*.html"
   },
   "cssProcessor": {
-    "id": "sass",
-    "displayName": "Sass",
-    "fileExtension": ".scss",
-    "source": "src/**/*.scss"
+    "id": "stylus",
+    "displayName": "Stylus",
+    "fileExtension": ".styl",
+    "source": "src/**/*.styl"
   },
   "editor": {
     "id": "visualstudio",
@@ -114,6 +114,25 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           "aurelia-fetch-client",
+          "aurelia-api",
+
+          "extend",
+          {
+            "name": "moment",
+            "path": "../node_modules/moment",
+            "main": "moment"
+          },
+          {
+            "name": "aurelia-authentication",
+            "path": "../node_modules/aurelia-authentication/dist/amd",
+            "main": "aurelia-authentication"
+          },
+          {
+            "name": "jwt-decode",
+            "path": "../node_modules/jwt-decode/lib",
+            "main": "index"
+          },
+
           "text",
           {
             "name": "aurelia-templating-resources",
@@ -130,6 +149,14 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          {
+            "name": "sweetalert",
+            "path": "../node_modules/sweetalert",
+            "main": "dist/sweetalert.min",
+            "resources": [
+              "dist/sweetalert.css"
+            ]
           }
         ]
       }

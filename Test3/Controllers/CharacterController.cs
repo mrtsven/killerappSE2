@@ -25,7 +25,8 @@ namespace KillerAPP.Controllers
       }
       public Character getCharacter([FromBody]Tuple <string> parameters)
       {
-      return charRepo.find(parameters.Item1);
+        return charRepo.find(parameters.Item1);
+      
       } 
 
       [HttpPost]
