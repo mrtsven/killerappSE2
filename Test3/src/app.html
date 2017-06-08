@@ -20,8 +20,8 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Right Side Of Navbar -->
           <ul class="nav navbar-nav navbar-right">
-            <li role="presentation"><a route-href="route: login">Login</a></li>
-            <li role="presentation"><a route-href="route: create">Register</a></li>
+            <li role="presentation"><a route-href="route: login" show.bind="!authenticated">Login</a></li>
+            <li role="presentation"><a route-href="route: create" show.bind="!authenticated">Register</a></li>
             <li role="presentation"><a route-href="route: shop" show.bind="authenticated">Shop</a></li>
             <li role="presentation"><a route-href="route: subpage" show.bind="authenticated">NPC</a></li>
             <li role="presentation"><a route-href="route: profile" show.bind="authenticated">Profile</a></li>
